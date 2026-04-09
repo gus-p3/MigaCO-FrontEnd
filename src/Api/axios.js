@@ -18,4 +18,18 @@ api.interceptors.request.use((config) => {
   return Promise.reject(error);
 });
 
+// Manejo global de errores del servidor.
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    const status = error?.response?.status;
+
+    if (status === 500 && window.location.pathname !== '/500') {
+      window.location.assign('/500');
+    }
+
+    return Promise.reject(error);
+  }
+);
+
 export default api;
