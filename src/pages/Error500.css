@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap");
+
+:root {
+  --forest: #728156;
+  --sage: #88976c;
+  --mint: #b6c99c;
+  --tea: #cfe1bb;
+  --cream: #e8f4dc;
+  --warn: #7a5c3c;
+}
+
+.error500-page {
+  min-height: calc(100vh - 72px);
+  margin-top: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 78% 18%, rgba(182, 201, 156, 0.52), transparent 40%),
+    radial-gradient(circle at 18% 82%, rgba(207, 225, 187, 0.78), transparent 45%),
+    var(--cream);
+}
+
+.error500-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(145deg, rgba(122, 92, 60, 0.12), rgba(136, 151, 108, 0.16));
+  opacity: 0;
+  animation: error500FadeIn 0.9s ease forwards;
+}
+
+.error500-card {
+  width: min(700px, 100%);
+  text-align: center;
+  border: 1px solid rgba(122, 92, 60, 0.28);
+  background: rgba(232, 244, 220, 0.8);
+  backdrop-filter: blur(8px);
+  border-radius: 22px;
+  padding: 2.8rem 2.2rem;
+  box-shadow:
+    0 28px 62px rgba(114, 129, 86, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  position: relative;
+  z-index: 1;
+  animation: error500RiseIn 0.75s ease both;
+}
+
+.error500-eyebrow {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 0.9rem;
+}
+
+.error500-code {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(4.5rem, 14vw, 8rem);
+  line-height: 1;
+  color: var(--warn);
+  letter-spacing: -0.03em;
+  text-shadow: 0 8px 20px rgba(122, 92, 60, 0.2);
+}
+
+.error500-title {
+  font-family: "Playfair Display", serif;
+  color: var(--forest);
+  font-size: clamp(1.35rem, 3.2vw, 2.1rem);
+  margin-top: 0.9rem;
+}
+
+.error500-text {
+  max-width: 580px;
+  margin: 1rem auto 2rem;
+  font-family: "Cormorant Garamond", serif;
+  color: var(--sage);
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.error500-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.9rem 1.7rem;
+  border: 1px solid var(--forest);
+  border-radius: 999px;
+  background: var(--forest);
+  color: var(--cream);
+  text-decoration: none;
+  font-family: "Cormorant Garamond", serif;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    gap 0.25s ease;
+}
+
+.error500-button:hover {
+  background: var(--sage);
+  transform: translateY(-2px);
+  gap: 1rem;
+}
+
+.error500-button:focus-visible {
+  outline: 3px solid var(--mint);
+  outline-offset: 2px;
+}
+
+@keyframes error500RiseIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes error500FadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .error500-page {
+    padding: 1.25rem;
+  }
+
+  .error500-card {
+    border-radius: 18px;
+    padding: 2rem 1.25rem;
+  }
+
+  .error500-text {
+    font-size: 1.1rem;
+  }
+}

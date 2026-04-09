@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import { AuthProvider, useAuth } from "./context/AuthContext";
 import { CarritoProvider } from "./context/CarritoContext";
 import Navbar from "./pages/Navbar";
@@ -10,22 +15,24 @@ import PerfilMigaCo from "./pages/Perfil";
 import AdminProductos from "./pages/AdminProductos";
 import AdminPedidos from "./pages/AdminPedidos";
 import Carrito from "./pages/Carrito";
+import NotFound from "./pages/NotFound";
+import Error500 from "./pages/Error500";
 
 const ProtectedRoute = ({ children, adminOnly = false }) => {
   const { isAuthenticated, isAdmin, loading } = useAuth();
-  
+
   if (loading) {
     return <div className="loading-spinner">Cargando...</div>;
   }
-  
+
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
   }
-  
+
   if (adminOnly && !isAdmin) {
     return <Navigate to="/" replace />;
   }
-  
+
   return children;
 };
 
@@ -36,7 +43,7 @@ function AppRoutes() {
       <Route path="/login" element={<Login />} />
       <Route path="/productos" element={<CatalogoPage />} />
       <Route path="/producto/:id" element={<ProductDetail />} />
-      
+
       {/* Rutas de usuario normal */}
       <Route
         path="/carrito"
@@ -54,24 +61,26 @@ function AppRoutes() {
           </ProtectedRoute>
         }
       />
-      
+
       {/* Rutas de administrador */}
-      <Route 
-        path="/admin/productos" 
+      <Route
+        path="/admin/productos"
         element={
           <ProtectedRoute adminOnly={true}>
             <AdminProductos />
           </ProtectedRoute>
-        } 
+        }
       />
-      <Route 
-        path="/admin/pedidos" 
+      <Route
+        path="/admin/pedidos"
         element={
           <ProtectedRoute adminOnly={true}>
             <AdminPedidos />
           </ProtectedRoute>
-        } 
+        }
       />
+      <Route path="/500" element={<Error500 />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
