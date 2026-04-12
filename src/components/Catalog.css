@@ -162,3 +162,133 @@
     font-size: 18px;
   }
 }
+/* Agregar al Catalog.css existente */
+
+.catalog-container {
+  position: relative;
+}
+
+/* Badge de categoría en resultados */
+.category-badge {
+  display: inline-block;
+  margin-left: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  background: var(--mint, #B6C99C);
+  color: var(--forest, #728156);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* Ajuste para el breadcrumb */
+.catalog-container .breadcrumb-wrapper {
+  margin-bottom: 1.5rem;
+}
+
+/* Información de resultados mejorada */
+.results-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--mint, #B6C99C);
+  margin-bottom: 1.5rem;
+}
+
+.results-info p {
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--sage, #88976C);
+  font-size: 1rem;
+  margin: 0;
+}
+
+.results-info strong {
+  color: var(--forest, #728156);
+  font-weight: 700;
+}
+
+/* Botón para limpiar filtros */
+.clear-filters-btn {
+  background: none;
+  border: 1px solid var(--mint, #B6C99C);
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  color: var(--sage, #88976C);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.clear-filters-btn:hover {
+  background: var(--mint, #B6C99C);
+  color: var(--forest, #728156);
+}
+
+/* Breadcrumb en móvil */
+@media (max-width: 768px) {
+  .catalog-container .breadcrumb-wrapper {
+    margin-bottom: 1rem;
+  }
+  
+  .results-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .category-badge {
+    display: block;
+    margin-left: 0;
+    margin-top: 0.5rem;
+    width: fit-content;
+  }
+}
+
+/* Animación de carga */
+.loading-state {
+  text-align: center;
+  padding: 3rem;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 1rem;
+  border: 3px solid var(--mint, #B6C99C);
+  border-top-color: var(--forest, #728156);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Estado vacío mejorado */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: white;
+  border-radius: 20px;
+  border: 1px solid var(--mint, #B6C99C);
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.6;
+}
+
+.empty-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--forest, #728156);
+  margin-bottom: 0.5rem;
+}
+
+.empty-message {
+  color: var(--sage, #88976C);
+  font-size: 1rem;
+}

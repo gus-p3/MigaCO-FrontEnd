@@ -1075,3 +1075,16 @@
   text-underline-offset: 2px;
   padding: 0; margin-top: 0.25rem;
 }
+/* Estilo para mostrar puntos en el CVV */
+.card-field-group input[type="text"][inputmode="numeric"][maxlength="4"] {
+  -webkit-text-security: disc;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 2px;
+}
+
+/* Para navegadores que no soportan -webkit-text-security */
+@supports not (-webkit-text-security: disc) {
+  .card-field-group input[type="text"][inputmode="numeric"][maxlength="4"] {
+    font-family: 'password', monospace;
+  }
+}

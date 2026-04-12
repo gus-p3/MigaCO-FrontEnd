@@ -12,12 +12,12 @@ import {
   IconStar,
   IconLogout,
   IconSave,
-  IconOrders
+  IconOrders,
 } from "../utils/perfilUtils";
 
 export default function PerfilMigaCo() {
   const { logout, user: authUser, loading: authLoading } = useAuth();
-  
+
   const [activeTab, setActiveTab] = useState("direcciones");
   const [direcciones, setDirecciones] = useState([]);
   const [pedidos, setPedidos] = useState([]);
@@ -29,7 +29,7 @@ export default function PerfilMigaCo() {
     ciudad: "",
     codigo_postal: "",
     referencias: "",
-    es_principal: false
+    es_principal: false,
   });
   const [profileForm, setProfileForm] = useState({ nombre: "", email: "" });
   const [toast, setToast] = useState(null);
@@ -42,8 +42,12 @@ export default function PerfilMigaCo() {
 
   useEffect(() => {
     if (authUser) {
-      setProfileForm({ nombre: authUser.nombre || "", email: authUser.email || "" });
-      if (authUser.perfil?.direcciones) setDirecciones(authUser.perfil.direcciones);
+      setProfileForm({
+        nombre: authUser.nombre || "",
+        email: authUser.email || "",
+      });
+      if (authUser.perfil?.direcciones)
+        setDirecciones(authUser.perfil.direcciones);
       cargarPedidos();
       setLoading(false);
     } else if (!authLoading) {
@@ -54,10 +58,10 @@ export default function PerfilMigaCo() {
   const cargarPedidos = async () => {
     try {
       setLoadingPedidos(true);
-      const response = await api.get('/pedidos/mis-pedidos');
+      const response = await api.get("/pedidos/mis-pedidos");
       setPedidos(response.data);
     } catch (error) {
-      console.error('Error al cargar pedidos:', error);
+      console.error("Error al cargar pedidos:", error);
       showToast("Error al cargar tus pedidos");
     } finally {
       setLoadingPedidos(false);
@@ -67,25 +71,27 @@ export default function PerfilMigaCo() {
   // ── Helpers de estado ──────────────────────────────────────────────────
   // El backend devuelve pedido.estado en la raíz (no en logistica)
   const getEstadoPedido = (pedido) =>
-    pedido.estado || pedido.logistica?.estado || 'pendiente';
+    pedido.estado || pedido.logistica?.estado || "pendiente";
 
-  const getEstadoEnEspanol = (estado) => ({
-    pendiente:  'Pendiente',
-    confirmado: 'Confirmado',
-    preparando: 'Preparando',
-    enviado:    'Enviado',
-    entregado:  'Entregado',
-    cancelado:  'Cancelado',
-  }[estado] || estado);
+  const getEstadoEnEspanol = (estado) =>
+    ({
+      pendiente: "Pendiente",
+      confirmado: "Confirmado",
+      preparando: "Preparando",
+      enviado: "Enviado",
+      entregado: "Entregado",
+      cancelado: "Cancelado",
+    })[estado] || estado;
 
-  const getEstadoColor = (estado) => ({
-    pendiente:  '#f39c12',
-    confirmado: '#3498db',
-    preparando: '#9b59b6',
-    enviado:    '#1abc9c',
-    entregado:  '#27ae60',
-    cancelado:  '#e74c3c',
-  }[estado] || '#95a5a6');
+  const getEstadoColor = (estado) =>
+    ({
+      pendiente: "#f39c12",
+      confirmado: "#3498db",
+      preparando: "#9b59b6",
+      enviado: "#1abc9c",
+      entregado: "#27ae60",
+      cancelado: "#e74c3c",
+    })[estado] || "#95a5a6";
 
   // ── Dirección de entrega del pedido ───────────────────────────────────
   // El backend la devuelve en pedido.direccion_envio (raíz)
@@ -95,16 +101,19 @@ export default function PerfilMigaCo() {
   };
 
   const formatearFecha = (fecha) =>
-    new Date(fecha).toLocaleDateString('es-ES', {
-      day: 'numeric', month: 'long', year: 'numeric'
+    new Date(fecha).toLocaleDateString("es-ES", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
     });
 
   // ── Operaciones de dirección ───────────────────────────────────────────
   const cargarDirecciones = async () => {
     try {
       setLoading(true);
-      const response = await api.get('/usuarios/perfil');
-      if (response.data.perfil?.direcciones) setDirecciones(response.data.perfil.direcciones);
+      const response = await api.get("/usuarios/perfil");
+      if (response.data.perfil?.direcciones)
+        setDirecciones(response.data.perfil.direcciones);
     } catch (error) {
       showToast("Error al cargar las direcciones");
     } finally {
@@ -114,15 +123,18 @@ export default function PerfilMigaCo() {
 
   const agregarDireccion = async (direccionData) => {
     try {
-      const response = await api.post('/usuarios/direcciones', direccionData);
+      const response = await api.post("/usuarios/direcciones", direccionData);
       const dirs =
         response.data.usuario?.perfil?.direcciones ||
         response.data.perfil?.direcciones ||
         null;
-      if (dirs) { setDirecciones(dirs); }
-      else if (response.data.direccion) { setDirecciones(prev => [...prev, response.data.direccion]); }
-      else if (response.data._id)       { setDirecciones(prev => [...prev, response.data]); }
-      else return false;
+      if (dirs) {
+        setDirecciones(dirs);
+      } else if (response.data.direccion) {
+        setDirecciones((prev) => [...prev, response.data.direccion]);
+      } else if (response.data._id) {
+        setDirecciones((prev) => [...prev, response.data]);
+      } else return false;
       showToast("✦ Dirección agregada exitosamente");
       return true;
     } catch (error) {
@@ -133,21 +145,33 @@ export default function PerfilMigaCo() {
 
   const actualizarDireccion = async (direccionId, direccionData) => {
     try {
-      const response = await api.put(`/usuarios/direcciones/${direccionId}`, direccionData);
+      const response = await api.put(
+        `/usuarios/direcciones/${direccionId}`,
+        direccionData,
+      );
       const dirs =
         response.data.usuario?.perfil?.direcciones ||
         response.data.perfil?.direcciones ||
         null;
-      if (dirs) { setDirecciones(dirs); }
-      else if (response.data.direccion) {
-        setDirecciones(prev => prev.map(d => d._id === direccionId ? response.data.direccion : d));
+      if (dirs) {
+        setDirecciones(dirs);
+      } else if (response.data.direccion) {
+        setDirecciones((prev) =>
+          prev.map((d) =>
+            d._id === direccionId ? response.data.direccion : d,
+          ),
+        );
       } else if (response.data._id) {
-        setDirecciones(prev => prev.map(d => d._id === direccionId ? response.data : d));
+        setDirecciones((prev) =>
+          prev.map((d) => (d._id === direccionId ? response.data : d)),
+        );
       } else return false;
       showToast("✦ Dirección actualizada exitosamente");
       return true;
     } catch (error) {
-      showToast(error.response?.data?.message || "Error al actualizar dirección");
+      showToast(
+        error.response?.data?.message || "Error al actualizar dirección",
+      );
       return false;
     }
   };
@@ -157,7 +181,7 @@ export default function PerfilMigaCo() {
       const response = await api.delete(`/usuarios/direcciones/${direccionId}`);
       const dirs = response.data.usuario?.perfil?.direcciones || null;
       if (dirs) setDirecciones(dirs);
-      else setDirecciones(prev => prev.filter(d => d._id !== direccionId));
+      else setDirecciones((prev) => prev.filter((d) => d._id !== direccionId));
       showToast("✦ Dirección eliminada exitosamente");
       return true;
     } catch (error) {
@@ -168,7 +192,7 @@ export default function PerfilMigaCo() {
 
   const actualizarPerfil = async (datos) => {
     try {
-      await api.put('/usuarios/perfil', datos);
+      await api.put("/usuarios/perfil", datos);
       showToast("✦ Perfil actualizado exitosamente");
       setTimeout(() => window.location.reload(), 1000);
       return true;
@@ -180,31 +204,123 @@ export default function PerfilMigaCo() {
 
   // ── Modal handlers ─────────────────────────────────────────────────────
   const openAdd = () => {
-    setForm({ etiqueta: "Hogar", calle: "", ciudad: "", codigo_postal: "", referencias: "", es_principal: false });
+    setForm({
+      etiqueta: "Hogar",
+      calle: "",
+      ciudad: "",
+      codigo_postal: "",
+      referencias: "",
+      es_principal: false,
+    });
     setModal({ type: "add" });
   };
-  const openEdit    = (addr) => { setForm({ ...addr }); setModal({ type: "edit", data: addr }); };
-  const openDelete  = (addr) => setModal({ type: "delete", data: addr });
+  const openEdit = (addr) => {
+    setForm({ ...addr });
+    setModal({ type: "edit", data: addr });
+  };
+  const openDelete = (addr) => setModal({ type: "delete", data: addr });
   const openEditProfile = () => {
-    setProfileForm({ nombre: authUser?.nombre || "", email: authUser?.email || "" });
+    setProfileForm({
+      nombre: authUser?.nombre || "",
+      email: authUser?.email || "",
+    });
     setModal({ type: "editProfile" });
   };
   const closeModal = () => setModal(null);
 
   const handleSave = async () => {
-    const data = { etiqueta: form.etiqueta, calle: form.calle, ciudad: form.ciudad,
-      codigo_postal: form.codigo_postal, referencias: form.referencias, es_principal: form.es_principal };
-    const success = modal.type === "add"
-      ? await agregarDireccion(data)
-      : await actualizarDireccion(modal.data._id, data);
+    // Validaciones de dirección
+    if (!form.etiqueta || form.etiqueta.trim() === "") {
+      showToast("La etiqueta es obligatoria");
+      return;
+    }
+
+    if (!form.calle || form.calle.trim() === "") {
+      showToast("La calle y número son obligatorios");
+      return;
+    }
+
+    if (form.calle.trim().length < 5) {
+      showToast("La dirección debe tener al menos 5 caracteres");
+      return;
+    }
+
+    if (!form.ciudad || form.ciudad.trim() === "") {
+      showToast("La ciudad es obligatoria");
+      return;
+    }
+
+    if (!form.codigo_postal || form.codigo_postal.trim() === "") {
+      showToast("El código postal es obligatorio");
+      return;
+    }
+
+    // Validar formato de código postal (5 dígitos)
+    const cpRegex = /^\d{5}$/;
+    if (!cpRegex.test(form.codigo_postal.trim())) {
+      showToast("El código postal debe tener 5 dígitos numéricos");
+      return;
+    }
+
+    const data = {
+      etiqueta: form.etiqueta.trim(),
+      calle: form.calle.trim(),
+      ciudad: form.ciudad.trim(),
+      codigo_postal: form.codigo_postal.trim(),
+      referencias: form.referencias?.trim() || "",
+      es_principal: form.es_principal,
+    };
+
+    const success =
+      modal.type === "add"
+        ? await agregarDireccion(data)
+        : await actualizarDireccion(modal.data._id, data);
+
     if (success) closeModal();
   };
 
-  const handleSaveProfile = async () => {
-    const success = await actualizarPerfil({ nombre: profileForm.nombre, email: profileForm.email });
-    if (success) closeModal();
-  };
 
+const handleSaveProfile = async () => {
+  // Validaciones de perfil
+  if (!profileForm.nombre || profileForm.nombre.trim() === "") {
+    showToast("El nombre no puede estar vacío");
+    return;
+  }
+
+  if (profileForm.nombre.trim().length < 3) {
+    showToast("El nombre debe tener al menos 3 caracteres");
+    return;
+  }
+
+  if (!profileForm.email || profileForm.email.trim() === "") {
+    showToast("El email no puede estar vacío");
+    return;
+  }
+
+  // Validar formato de email
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(profileForm.email.trim())) {
+    showToast("Ingresa un email válido (ejemplo@dominio.com)");
+    return;
+  }
+
+  // Si el email fue modificado, mostrar notificación informativa
+  const emailModificado = authUser?.email && profileForm.email.trim() !== authUser.email;
+  
+  const success = await actualizarPerfil({
+    nombre: profileForm.nombre.trim(),
+    email: profileForm.email.trim(),
+  });
+
+  if (success) {
+    if (emailModificado) {
+      showToast("✨ Perfil actualizado.");
+    } else {
+      showToast("✨ Perfil actualizado exitosamente");
+    }
+    closeModal();
+  }
+};
   const handleDelete = async () => {
     const success = await eliminarDireccion(modal.data._id);
     if (success) closeModal();
@@ -213,7 +329,9 @@ export default function PerfilMigaCo() {
   const handleLogout = () => {
     logout();
     showToast("✦ Sesión cerrada");
-    setTimeout(() => { window.location.href = "/"; }, 1000);
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 1000);
   };
 
   if (authLoading || loading) {
@@ -229,17 +347,23 @@ export default function PerfilMigaCo() {
   if (!authUser) return null;
 
   const nombreCompleto = authUser.nombre || "Usuario";
-  const emailUsuario   = authUser.email  || "";
-  const fechaRegistro  = authUser.fecha_registro || new Date().toISOString();
-  const initials = nombreCompleto.split(" ").map(w => w[0]).join("").slice(0, 2).toUpperCase();
-  const fechaFormateada = new Date(fechaRegistro).toLocaleDateString('es-ES', {
-    year: 'numeric', month: 'long', day: 'numeric'
+  const emailUsuario = authUser.email || "";
+  const fechaRegistro = authUser.fecha_registro || new Date().toISOString();
+  const initials = nombreCompleto
+    .split(" ")
+    .map((w) => w[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+  const fechaFormateada = new Date(fechaRegistro).toLocaleDateString("es-ES", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   });
 
   return (
     <div className="pf-root">
       <div className="pf-layout">
-
         {/* ── SIDEBAR ── */}
         <aside className="pf-sidebar">
           <div className="pf-card">
@@ -247,19 +371,39 @@ export default function PerfilMigaCo() {
               <div className="pf-avatar">{initials}</div>
               <div className="pf-sidebar-name">{nombreCompleto}</div>
               <div className="pf-sidebar-email">{emailUsuario}</div>
-              <div className="pf-sidebar-since">Miembro desde {fechaFormateada}</div>
+              <div className="pf-sidebar-since">
+                Miembro desde {fechaFormateada}
+              </div>
             </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.25rem" }}>
-              <button className={`pf-nav-item ${activeTab === "perfil" ? "active" : ""}`} onClick={() => setActiveTab("perfil")}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.25rem",
+              }}
+            >
+              <button
+                className={`pf-nav-item ${activeTab === "perfil" ? "active" : ""}`}
+                onClick={() => setActiveTab("perfil")}
+              >
                 <IconUser /> Mis datos
               </button>
-              <button className={`pf-nav-item ${activeTab === "direcciones" ? "active" : ""}`} onClick={() => setActiveTab("direcciones")}>
+              <button
+                className={`pf-nav-item ${activeTab === "direcciones" ? "active" : ""}`}
+                onClick={() => setActiveTab("direcciones")}
+              >
                 <IconHome /> Direcciones ({direcciones.length})
               </button>
-              <button className={`pf-nav-item ${activeTab === "pedidos" ? "active" : ""}`} onClick={() => setActiveTab("pedidos")}>
+              <button
+                className={`pf-nav-item ${activeTab === "pedidos" ? "active" : ""}`}
+                onClick={() => setActiveTab("pedidos")}
+              >
                 <IconOrders /> Mis pedidos ({pedidos.length})
               </button>
-              <button className="pf-nav-item pf-logout-btn" onClick={handleLogout}>
+              <button
+                className="pf-nav-item pf-logout-btn"
+                onClick={handleLogout}
+              >
                 <IconLogout /> Cerrar sesión
               </button>
             </div>
@@ -269,18 +413,28 @@ export default function PerfilMigaCo() {
         {/* ── MAIN ── */}
         <main className="pf-main">
           <AnimatePresence mode="wait">
-
             {/* ── TAB DIRECCIONES ── */}
             {activeTab === "direcciones" && (
-              <motion.div key="dir"
-                initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -16 }} transition={{ duration: 0.3 }}
-                style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}
+              <motion.div
+                key="dir"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -16 }}
+                transition={{ duration: 0.3 }}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "1.25rem",
+                }}
               >
                 <div className="pf-header-section">
                   <div>
-                    <h2 className="pf-section-title">Mis <em>direcciones</em></h2>
-                    <p className="pf-section-sub">Gestiona tus domicilios de entrega</p>
+                    <h2 className="pf-section-title">
+                      Mis <em>direcciones</em>
+                    </h2>
+                    <p className="pf-section-sub">
+                      Gestiona tus domicilios de entrega
+                    </p>
                   </div>
                   <button className="pf-add-btn-mobile" onClick={openAdd}>
                     <IconPlus /> Agregar
@@ -297,38 +451,69 @@ export default function PerfilMigaCo() {
                     </div>
                   ) : (
                     direcciones.map((addr) => (
-                      <motion.div key={addr._id} layout
-                        initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}
+                      <motion.div
+                        key={addr._id}
+                        layout
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.9 }}
                         className={`pf-addr-card ${addr.es_principal ? "principal" : ""}`}
                       >
                         <div className="pf-addr-icon-col">
-                          {addr.etiqueta === "Hogar" ? "🏠" : addr.etiqueta === "Trabajo" ? "💼" : "📍"}
+                          {addr.etiqueta === "Hogar"
+                            ? "🏠"
+                            : addr.etiqueta === "Trabajo"
+                              ? "💼"
+                              : "📍"}
                         </div>
                         <div className="pf-addr-body">
                           <div className="pf-addr-top-row">
-                            <span className="pf-addr-badge">{addr.etiqueta}</span>
+                            <span className="pf-addr-badge">
+                              {addr.etiqueta}
+                            </span>
                             {addr.es_principal && (
-                              <span className="pf-addr-badge main-badge"><IconStar /> Principal</span>
+                              <span className="pf-addr-badge main-badge">
+                                <IconStar /> Principal
+                              </span>
                             )}
                           </div>
                           <div className="pf-addr-label">{addr.calle}</div>
-                          <div className="pf-addr-text">{addr.ciudad}, CP {addr.codigo_postal}</div>
-                          {addr.referencias && <div className="pf-addr-ref">📌 {addr.referencias}</div>}
+                          <div className="pf-addr-text">
+                            {addr.ciudad}, CP {addr.codigo_postal}
+                          </div>
+                          {addr.referencias && (
+                            <div className="pf-addr-ref">
+                              📌 {addr.referencias}
+                            </div>
+                          )}
                         </div>
                         <div className="pf-addr-actions">
-                          <motion.button whileTap={{ scale: 0.95 }} className="pf-btn-icon pf-btn-edit" onClick={() => openEdit(addr)}>
+                          <motion.button
+                            whileTap={{ scale: 0.95 }}
+                            className="pf-btn-icon pf-btn-edit"
+                            onClick={() => openEdit(addr)}
+                          >
                             <IconEdit /> Editar
                           </motion.button>
-                          <motion.button whileTap={{ scale: 0.95 }} className="pf-btn-icon pf-btn-delete" onClick={() => openDelete(addr)}>
+                          <motion.button
+                            whileTap={{ scale: 0.95 }}
+                            className="pf-btn-icon pf-btn-delete"
+                            onClick={() => openDelete(addr)}
+                          >
                             <IconTrash /> Eliminar
                           </motion.button>
                         </div>
                       </motion.div>
                     ))
                   )}
-                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="pf-addr-add" onClick={openAdd}>
-                    <IconPlus /><span>Nueva dirección</span>
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="pf-addr-add"
+                    onClick={openAdd}
+                  >
+                    <IconPlus />
+                    <span>Nueva dirección</span>
                   </motion.div>
                 </div>
               </motion.div>
@@ -336,13 +521,22 @@ export default function PerfilMigaCo() {
 
             {/* ── TAB PERFIL ── */}
             {activeTab === "perfil" && (
-              <motion.div key="per"
-                initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -16 }} transition={{ duration: 0.3 }}
-                style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}
+              <motion.div
+                key="per"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -16 }}
+                transition={{ duration: 0.3 }}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "1.25rem",
+                }}
               >
                 <div>
-                  <h2 className="pf-section-title">Mis <em>datos</em></h2>
+                  <h2 className="pf-section-title">
+                    Mis <em>datos</em>
+                  </h2>
                   <p className="pf-section-sub">Información de tu cuenta</p>
                 </div>
                 <div className="pf-card pf-profile-card">
@@ -351,8 +545,11 @@ export default function PerfilMigaCo() {
                       { label: "Nombre completo", val: nombreCompleto },
                       { label: "Email", val: emailUsuario },
                       { label: "Miembro desde", val: fechaFormateada },
-                      { label: "Direcciones guardadas", val: direcciones.length },
-                    ].map(f => (
+                      {
+                        label: "Direcciones guardadas",
+                        val: direcciones.length,
+                      },
+                    ].map((f) => (
                       <div className="pf-info-field" key={f.label}>
                         <label>{f.label}</label>
                         <div className="val">{f.val}</div>
@@ -360,7 +557,11 @@ export default function PerfilMigaCo() {
                     ))}
                   </div>
                   <div className="pf-profile-actions">
-                    <motion.button whileTap={{ scale: 0.95 }} className="pf-edit-profile-btn" onClick={openEditProfile}>
+                    <motion.button
+                      whileTap={{ scale: 0.95 }}
+                      className="pf-edit-profile-btn"
+                      onClick={openEditProfile}
+                    >
                       <IconEdit /> Editar información
                     </motion.button>
                   </div>
@@ -370,13 +571,22 @@ export default function PerfilMigaCo() {
 
             {/* ── TAB PEDIDOS ── */}
             {activeTab === "pedidos" && (
-              <motion.div key="ped"
-                initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -16 }} transition={{ duration: 0.3 }}
-                style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}
+              <motion.div
+                key="ped"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -16 }}
+                transition={{ duration: 0.3 }}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "1.25rem",
+                }}
               >
                 <div>
-                  <h2 className="pf-section-title">Mis <em>pedidos</em></h2>
+                  <h2 className="pf-section-title">
+                    Mis <em>pedidos</em>
+                  </h2>
                   <p className="pf-section-sub">Historial de tus compras</p>
                 </div>
 
@@ -388,7 +598,10 @@ export default function PerfilMigaCo() {
                   <div className="pf-empty-state">
                     <div className="empty-icon">🛒</div>
                     <p>No tienes pedidos aún</p>
-                    <button className="pf-empty-btn" onClick={() => window.location.href = "/productos"}>
+                    <button
+                      className="pf-empty-btn"
+                      onClick={() => (window.location.href = "/productos")}
+                    >
                       Explorar productos
                     </button>
                   </div>
@@ -401,18 +614,29 @@ export default function PerfilMigaCo() {
                       const dir = getDireccionPedido(pedido);
 
                       return (
-                        <motion.div key={pedido._id} className="pf-pedido-card"
-                          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+                        <motion.div
+                          key={pedido._id}
+                          className="pf-pedido-card"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.3 }}
                         >
                           {/* Header */}
                           <div className="pf-pedido-header">
                             <div>
-                              <span className="pf-pedido-numero">Pedido #{pedido._id.slice(-6)}</span>
-                              <span className="pf-pedido-fecha">{formatearFecha(pedido.fecha)}</span>
+                              <span className="pf-pedido-numero">
+                                Pedido #{pedido._id.slice(-6)}
+                              </span>
+                              <span className="pf-pedido-fecha">
+                                {formatearFecha(pedido.fecha)}
+                              </span>
                             </div>
-                            <div className="pf-pedido-estado"
-                              style={{ backgroundColor: getEstadoColor(estadoPedido) }}>
+                            <div
+                              className="pf-pedido-estado"
+                              style={{
+                                backgroundColor: getEstadoColor(estadoPedido),
+                              }}
+                            >
                               {getEstadoEnEspanol(estadoPedido)}
                             </div>
                           </div>
@@ -421,12 +645,20 @@ export default function PerfilMigaCo() {
                           <div className="pf-pedido-items">
                             {productos.slice(0, 3).map((item, idx) => (
                               <div key={idx} className="pf-pedido-item">
-                                <span className="pf-pedido-item-cantidad">{item.cantidad}x</span>
+                                <span className="pf-pedido-item-cantidad">
+                                  {item.cantidad}x
+                                </span>
                                 <span className="pf-pedido-item-nombre">
-                                  {item.nombre || item.producto_id?.nombre || "Producto"}
+                                  {item.nombre ||
+                                    item.producto_id?.nombre ||
+                                    "Producto"}
                                 </span>
                                 <span className="pf-pedido-item-precio">
-                                  ${((item.precio_unitario || item.precio || 0) * item.cantidad).toLocaleString()}
+                                  $
+                                  {(
+                                    (item.precio_unitario || item.precio || 0) *
+                                    item.cantidad
+                                  ).toLocaleString()}
                                 </span>
                               </div>
                             ))}
@@ -445,28 +677,49 @@ export default function PerfilMigaCo() {
                             </div>
                             {dir ? (
                               <div className="pf-pedido-dir-body">
-                                <p className="pf-pedido-dir-calle">{dir.calle}</p>
+                                <p className="pf-pedido-dir-calle">
+                                  {dir.calle}
+                                </p>
                                 <p className="pf-pedido-dir-ciudad">
-                                  {dir.ciudad}{dir.codigo_postal ? `, CP ${dir.codigo_postal}` : ''}
+                                  {dir.ciudad}
+                                  {dir.codigo_postal
+                                    ? `, CP ${dir.codigo_postal}`
+                                    : ""}
                                 </p>
                                 {dir.referencias && (
-                                  <p className="pf-pedido-dir-ref">📌 {dir.referencias}</p>
+                                  <p className="pf-pedido-dir-ref">
+                                    📌 {dir.referencias}
+                                  </p>
                                 )}
                               </div>
                             ) : (
-                              <p className="pf-pedido-dir-na">Sin dirección registrada</p>
+                              <p className="pf-pedido-dir-na">
+                                Sin dirección registrada
+                              </p>
                             )}
                           </div>
 
                           {/* Footer */}
                           <div className="pf-pedido-footer">
                             <div className="pf-pedido-total">
-                              Total: <strong>${(pedido.total || 0).toLocaleString()}</strong>
+                              Total:{" "}
+                              <strong>
+                                ${(pedido.total || 0).toLocaleString()}
+                              </strong>
                             </div>
-                            <div className="pf-pedido-pago" style={{
-                              color: pedido.pago?.estado === 'pagado' ? '#27ae60' : '#f39c12'
-                            }}>
-                              💳 {pedido.pago?.estado === 'pagado' ? 'Pagado' : 'Pendiente'}
+                            <div
+                              className="pf-pedido-pago"
+                              style={{
+                                color:
+                                  pedido.pago?.estado === "pagado"
+                                    ? "#27ae60"
+                                    : "#f39c12",
+                              }}
+                            >
+                              💳{" "}
+                              {pedido.pago?.estado === "pagado"
+                                ? "Pagado"
+                                : "Pendiente"}
                             </div>
                           </div>
                         </motion.div>
@@ -476,7 +729,6 @@ export default function PerfilMigaCo() {
                 )}
               </motion.div>
             )}
-
           </AnimatePresence>
         </main>
       </div>
@@ -484,52 +736,116 @@ export default function PerfilMigaCo() {
       {/* ── MODAL: agregar / editar dirección ── */}
       <AnimatePresence>
         {(modal?.type === "add" || modal?.type === "edit") && (
-          <motion.div className="pf-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={closeModal}>
-            <motion.div className="pf-modal"
-              initial={{ opacity: 0, scale: 0.92, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.92, y: 20 }} transition={{ duration: 0.28 }}
-              onClick={e => e.stopPropagation()}
+          <motion.div
+            className="pf-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={closeModal}
+          >
+            <motion.div
+              className="pf-modal"
+              initial={{ opacity: 0, scale: 0.92, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.92, y: 20 }}
+              transition={{ duration: 0.28 }}
+              onClick={(e) => e.stopPropagation()}
             >
               <div className="pf-modal-head">
                 <h3 className="pf-modal-title">
-                  {modal.type === "add" ? <>Nueva <em>dirección</em></> : <>Editar <em>dirección</em></>}
+                  {modal.type === "add" ? (
+                    <>
+                      Nueva <em>dirección</em>
+                    </>
+                  ) : (
+                    <>
+                      Editar <em>dirección</em>
+                    </>
+                  )}
                 </h3>
-                <button className="pf-modal-close" onClick={closeModal}>✕</button>
+                <button className="pf-modal-close" onClick={closeModal}>
+                  ✕
+                </button>
               </div>
               <div className="pf-form-grid">
                 <div className="pf-field pf-form-full">
                   <label>Etiqueta</label>
-                  <select value={form.etiqueta} onChange={e => setForm({ ...form, etiqueta: e.target.value })}>
-                    <option>Hogar</option><option>Trabajo</option><option>Otro</option>
+                  <select
+                    value={form.etiqueta}
+                    onChange={(e) =>
+                      setForm({ ...form, etiqueta: e.target.value })
+                    }
+                  >
+                    <option>Hogar</option>
+                    <option>Trabajo</option>
+                    <option>Otro</option>
                   </select>
                 </div>
                 <div className="pf-field pf-form-full">
                   <label>Calle y número</label>
-                  <input placeholder="Av. Reforma 100, Col. Centro" value={form.calle} onChange={e => setForm({ ...form, calle: e.target.value })} />
+                  <input
+                    placeholder="Av. Reforma 100, Col. Centro"
+                    value={form.calle}
+                    onChange={(e) =>
+                      setForm({ ...form, calle: e.target.value })
+                    }
+                  />
                 </div>
                 <div className="pf-field">
                   <label>Ciudad</label>
-                  <input placeholder="Ciudad de México" value={form.ciudad} onChange={e => setForm({ ...form, ciudad: e.target.value })} />
+                  <input
+                    placeholder="Ciudad de México"
+                    value={form.ciudad}
+                    onChange={(e) =>
+                      setForm({ ...form, ciudad: e.target.value })
+                    }
+                  />
                 </div>
                 <div className="pf-field">
                   <label>Código Postal</label>
-                  <input placeholder="06600" value={form.codigo_postal} onChange={e => setForm({ ...form, codigo_postal: e.target.value })} />
+                  <input
+                    placeholder="06600"
+                    value={form.codigo_postal}
+                    onChange={(e) =>
+                      setForm({ ...form, codigo_postal: e.target.value })
+                    }
+                  />
                 </div>
                 <div className="pf-field pf-form-full">
                   <label>Referencias</label>
-                  <input placeholder="Color de fachada, número de dpto…" value={form.referencias} onChange={e => setForm({ ...form, referencias: e.target.value })} />
+                  <input
+                    placeholder="Color de fachada, número de dpto…"
+                    value={form.referencias}
+                    onChange={(e) =>
+                      setForm({ ...form, referencias: e.target.value })
+                    }
+                  />
                 </div>
                 <div className="pf-form-full">
                   <label className="pf-checkbox-row">
-                    <input type="checkbox" checked={form.es_principal} onChange={e => setForm({ ...form, es_principal: e.target.checked })} />
+                    <input
+                      type="checkbox"
+                      checked={form.es_principal}
+                      onChange={(e) =>
+                        setForm({ ...form, es_principal: e.target.checked })
+                      }
+                    />
                     Establecer como dirección principal
                   </label>
                 </div>
               </div>
               <div className="pf-modal-footer">
-                <button className="pf-btn-cancel" onClick={closeModal}>Cancelar</button>
-                <motion.button whileTap={{ scale: 0.97 }} className="pf-btn-save" onClick={handleSave}>
-                  {modal.type === "add" ? "Agregar dirección" : "Guardar cambios"}
+                <button className="pf-btn-cancel" onClick={closeModal}>
+                  Cancelar
+                </button>
+                <motion.button
+                  whileTap={{ scale: 0.97 }}
+                  className="pf-btn-save"
+                  onClick={handleSave}
+                >
+                  {modal.type === "add"
+                    ? "Agregar dirección"
+                    : "Guardar cambios"}
                 </motion.button>
               </div>
             </motion.div>
@@ -540,31 +856,80 @@ export default function PerfilMigaCo() {
       {/* ── MODAL: editar perfil ── */}
       <AnimatePresence>
         {modal?.type === "editProfile" && (
-          <motion.div className="pf-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={closeModal}>
-            <motion.div className="pf-modal"
-              initial={{ opacity: 0, scale: 0.92, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.92, y: 20 }} transition={{ duration: 0.28 }}
-              onClick={e => e.stopPropagation()}
+          <motion.div
+            className="pf-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={closeModal}
+          >
+            <motion.div
+              className="pf-modal"
+              initial={{ opacity: 0, scale: 0.92, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.92, y: 20 }}
+              transition={{ duration: 0.28 }}
+              onClick={(e) => e.stopPropagation()}
             >
               <div className="pf-modal-head">
-                <h3 className="pf-modal-title">Editar <em>información</em></h3>
-                <button className="pf-modal-close" onClick={closeModal}>✕</button>
+                <h3 className="pf-modal-title">
+                  Editar <em>información</em>
+                </h3>
+                <button className="pf-modal-close" onClick={closeModal}>
+                  ✕
+                </button>
               </div>
               <div className="pf-form-grid">
                 <div className="pf-field pf-form-full">
                   <label>Nombre completo</label>
-                  <input placeholder="Tu nombre" value={profileForm.nombre}
-                    onChange={e => setProfileForm({ ...profileForm, nombre: e.target.value })} />
+                  <input
+                    placeholder="Tu nombre"
+                    value={profileForm.nombre}
+                    onChange={(e) =>
+                      setProfileForm({ ...profileForm, nombre: e.target.value })
+                    }
+                  />
                 </div>
                 <div className="pf-field pf-form-full">
                   <label>Correo electrónico</label>
-                  <input type="email" placeholder="tu@email.com" value={profileForm.email}
-                    onChange={e => setProfileForm({ ...profileForm, email: e.target.value })} />
+                  <input
+                    type="email"
+                    placeholder="tu@email.com"
+                    value={profileForm.email}
+                    onChange={(e) => {
+                      const newEmail = e.target.value;
+                      // Evitar que se borre completamente el email
+                      if (newEmail.trim() === "" && authUser?.email) {
+                        showToast(" No puedes dejar el email vacío");
+                        return;
+                      }
+                      setProfileForm({ ...profileForm, email: newEmail });
+                    }}
+                    required
+                  />
+                  {authUser?.email && profileForm.email !== authUser.email && (
+                    <small
+                      style={{
+                        color: "#f39c12",
+                        fontSize: "0.75rem",
+                        marginTop: "0.25rem",
+                        display: "block",
+                      }}
+                    >
+                       Cambiar tu email requerirá verificación
+                    </small>
+                  )}
                 </div>
               </div>
               <div className="pf-modal-footer">
-                <button className="pf-btn-cancel" onClick={closeModal}>Cancelar</button>
-                <motion.button whileTap={{ scale: 0.97 }} className="pf-btn-save" onClick={handleSaveProfile}>
+                <button className="pf-btn-cancel" onClick={closeModal}>
+                  Cancelar
+                </button>
+                <motion.button
+                  whileTap={{ scale: 0.97 }}
+                  className="pf-btn-save"
+                  onClick={handleSaveProfile}
+                >
                   <IconSave /> Guardar cambios
                 </motion.button>
               </div>
@@ -576,20 +941,38 @@ export default function PerfilMigaCo() {
       {/* ── MODAL: eliminar dirección ── */}
       <AnimatePresence>
         {modal?.type === "delete" && (
-          <motion.div className="pf-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={closeModal}>
-            <motion.div className="pf-modal"
-              initial={{ opacity: 0, scale: 0.92, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.92, y: 20 }} transition={{ duration: 0.28 }}
-              onClick={e => e.stopPropagation()}
+          <motion.div
+            className="pf-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={closeModal}
+          >
+            <motion.div
+              className="pf-modal"
+              initial={{ opacity: 0, scale: 0.92, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.92, y: 20 }}
+              transition={{ duration: 0.28 }}
+              onClick={(e) => e.stopPropagation()}
             >
               <div className="pf-confirm-body">
                 <div className="pf-confirm-icon">🗑️</div>
                 <h3>¿Eliminar dirección?</h3>
-                <p>Se eliminará <strong>{modal.data.etiqueta}</strong> — {modal.data.calle}. Esta acción no se puede deshacer.</p>
+                <p>
+                  Se eliminará <strong>{modal.data.etiqueta}</strong> —{" "}
+                  {modal.data.calle}. Esta acción no se puede deshacer.
+                </p>
               </div>
               <div className="pf-modal-footer">
-                <button className="pf-btn-cancel" onClick={closeModal}>Cancelar</button>
-                <motion.button whileTap={{ scale: 0.97 }} className="pf-btn-danger" onClick={handleDelete}>
+                <button className="pf-btn-cancel" onClick={closeModal}>
+                  Cancelar
+                </button>
+                <motion.button
+                  whileTap={{ scale: 0.97 }}
+                  className="pf-btn-danger"
+                  onClick={handleDelete}
+                >
                   Sí, eliminar
                 </motion.button>
               </div>
@@ -601,8 +984,11 @@ export default function PerfilMigaCo() {
       {/* ── TOAST ── */}
       <AnimatePresence>
         {toast && (
-          <motion.div className="pf-toast"
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }}
+          <motion.div
+            className="pf-toast"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
           >
             {toast}
           </motion.div>

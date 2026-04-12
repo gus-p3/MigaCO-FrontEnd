@@ -1,0 +1,160 @@
+
+:root {
+  --forest: #728156;
+  --sage: #88976C;
+  --mint: #B6C99C;
+  --tea: #CFE1BB;
+  --cream: #E8F4DC;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Cormorant Garamond', serif;
+  background: var(--cream);
+  color: var(--forest);
+  line-height: 1.6;
+}
+
+/* App Wrapper */
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Main content */
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Breadcrumb global */
+.app-breadcrumb {
+  margin-top: 20px; /* Altura del navbar */
+  position: relative;
+  z-index: 10;
+  background: transparent;
+}
+
+/* Contenido principal */
+.app-content {
+  flex: 1;
+  width: 100%;
+}
+
+/* Loading global */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.loading-spinner {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--forest);
+  position: relative;
+  padding-left: 2rem;
+}
+
+.loading-spinner::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--mint);
+  border-top-color: var(--forest);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: translateY(-50%) rotate(360deg); }
+}
+
+/* Scroll personalizado */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--mint);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--sage);
+}
+
+/* Utilidades */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Animaciones globales */
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app-breadcrumb {
+    margin-top: 60px;
+  }
+  
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+/* Páginas que no necesitan breadcrumb */
+.page-fullscreen .app-breadcrumb {
+  display: none;
+}
+
+/* Ajuste para páginas con hero section */
+.home-page .app-breadcrumb {
+  display: none;
+}
+
+/* Ajuste para página de login */
+.login-page .app-breadcrumb {
+  display: none;
+}

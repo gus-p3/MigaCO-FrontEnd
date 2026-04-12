@@ -3,6 +3,7 @@ import {
   Routes,
   Route,
   Navigate,
+  useLocation,
 } from "react-router-dom";
 import { AuthProvider, useAuth } from "./context/AuthContext";
 import { CarritoProvider } from "./context/CarritoContext";
@@ -17,12 +18,21 @@ import AdminPedidos from "./pages/AdminPedidos";
 import Carrito from "./pages/Carrito";
 import NotFound from "./pages/NotFound";
 import Error500 from "./pages/Error500";
+import Footer from "./pages/Footer";
+import Sitemap from "./pages/Sitemap";
+import AvisoPrivacidad from "./pages/AvisoPrivacidad";
+import Breadcrumb from "./components/Breadcrumb"; // ← Importar Breadcrumb
+import "./App.css";
 
 const ProtectedRoute = ({ children, adminOnly = false }) => {
   const { isAuthenticated, isAdmin, loading } = useAuth();
 
   if (loading) {
-    return <div className="loading-spinner">Cargando...</div>;
+    return (
+      <div className="loading-container">
+        <div className="loading-spinner">Cargando...</div>
+      </div>
+    );
   }
 
   if (!isAuthenticated) {
@@ -36,52 +46,96 @@ const ProtectedRoute = ({ children, adminOnly = false }) => {
   return children;
 };
 
+// Componente Layout para manejar Footer y Breadcrumb condicional
+function Layout({ children }) {
+  const location = useLocation();
+  
+  // Rutas donde NO queremos mostrar el Footer
+  const hideFooterRoutes = ['/login', '/admin'];
+  const shouldHideFooter = hideFooterRoutes.some(route => 
+    location.pathname.startsWith(route)
+  );
+
+  // Rutas donde NO queremos mostrar el Breadcrumb
+  const hideBreadcrumbRoutes = ['/login', '/', '/500'];
+  const shouldHideBreadcrumb = hideBreadcrumbRoutes.some(route => 
+    location.pathname === route || 
+    (route !== '/' && location.pathname.startsWith(route))
+  );
+
+  return (
+    <>
+      {/* Breadcrumb global - visible en todas las páginas excepto las excluidas */}
+      {!shouldHideBreadcrumb && (
+        <div className="app-breadcrumb">
+          <Breadcrumb />
+        </div>
+      )}
+      
+      {/* Contenido principal */}
+      <div className="app-content">
+        {children}
+      </div>
+      
+      {/* Footer condicional */}
+      {!shouldHideFooter && <Footer />}
+    </>
+  );
+}
+
 function AppRoutes() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/productos" element={<CatalogoPage />} />
-      <Route path="/producto/:id" element={<ProductDetail />} />
+    <Layout>
+      <Routes>
+        {/* Rutas públicas */}
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/productos" element={<CatalogoPage />} />
+        <Route path="/producto/:id" element={<ProductDetail />} />
+        <Route path="/sitemap" element={<Sitemap />} />
+        <Route path="/privacidad" element={<AvisoPrivacidad />} />
 
-      {/* Rutas de usuario normal */}
-      <Route
-        path="/carrito"
-        element={
-          <ProtectedRoute>
-            <Carrito />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/perfil"
-        element={
-          <ProtectedRoute>
-            <PerfilMigaCo />
-          </ProtectedRoute>
-        }
-      />
+        {/* Rutas de usuario normal */}
+        <Route
+          path="/carrito"
+          element={
+            <ProtectedRoute>
+              <Carrito />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/perfil"
+          element={
+            <ProtectedRoute>
+              <PerfilMigaCo />
+            </ProtectedRoute>
+          }
+        />
 
-      {/* Rutas de administrador */}
-      <Route
-        path="/admin/productos"
-        element={
-          <ProtectedRoute adminOnly={true}>
-            <AdminProductos />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/admin/pedidos"
-        element={
-          <ProtectedRoute adminOnly={true}>
-            <AdminPedidos />
-          </ProtectedRoute>
-        }
-      />
-      <Route path="/500" element={<Error500 />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+        {/* Rutas de administrador */}
+        <Route
+          path="/admin/productos"
+          element={
+            <ProtectedRoute adminOnly={true}>
+              <AdminProductos />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/pedidos"
+          element={
+            <ProtectedRoute adminOnly={true}>
+              <AdminPedidos />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Páginas de error */}
+        <Route path="/500" element={<Error500 />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Layout>
   );
 }
 
@@ -90,8 +144,12 @@ function App() {
     <AuthProvider>
       <CarritoProvider>
         <Router>
-          <Navbar />
-          <AppRoutes />
+          <div className="app-wrapper">
+            <Navbar />
+            <main className="app-main">
+              <AppRoutes />
+            </main>
+          </div>
         </Router>
       </CarritoProvider>
     </AuthProvider>
