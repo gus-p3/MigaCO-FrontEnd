@@ -1,13 +1,16 @@
 import { useState, useMemo } from "react";
 import { useProductos } from "../hooks/useProductos";
+import { useLocation } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import CategoryFilter from "./CategoryFilter";
 import AdvancedFilters from "./AdvancedFilters";
 import ProductCard from "./ProductCard";
+import Breadcrumb from "./Breadcrumb"; // ← Importar Breadcrumb
 import "./Catalog.css";
 
 export default function Catalog() {
   const { productos, loading, error } = useProductos();
+  const location = useLocation();
   const [selectedCategory, setSelectedCategory] = useState("todos");
   const [searchQuery, setSearchQuery] = useState("");
   const [filters, setFilters] = useState({
@@ -17,10 +20,35 @@ export default function Catalog() {
     disponibleSolo: false,
   });
 
+  // Detectar categoría de la URL
+  useMemo(() => {
+    const params = new URLSearchParams(location.search);
+    const cat = params.get('cat');
+    if (cat && cat !== selectedCategory) {
+      setSelectedCategory(cat);
+    }
+  }, [location.search]);
+
+  // Obtener nombre legible de la categoría para el breadcrumb
+  const getCategoryName = (categoryId) => {
+    const categoryNames = {
+      'todos': 'Todos los Productos',
+      'pasteles': 'Pasteles Personalizados',
+      'bodas': 'Pasteles de Boda',
+      'infantiles': 'Pasteles Infantiles',
+      'temporada': 'Especiales de Temporada',
+      'cupcakes': 'Cupcakes',
+      'postres': 'Postres Individuales',
+      'galletas': 'Galletas Decoradas',
+      'eventos': 'Para Eventos',
+    };
+    return categoryNames[categoryId] || categoryId;
+  };
+
   const filteredProducts = useMemo(() => {
     let result = productos;
 
-    // Filtrir por categoría
+    // Filtrar por categoría
     if (selectedCategory !== "todos") {
       result = result.filter((p) => p.categoria === selectedCategory);
     }
@@ -47,7 +75,7 @@ export default function Catalog() {
       result = result.filter((p) => p.tipo_producto === filters.tipo);
     }
 
-    // Filtrer por disponibilidad
+    // Filtrar por disponibilidad
     if (filters.disponibleSolo) {
       result = result.filter(
         (p) =>
@@ -71,13 +99,28 @@ export default function Catalog() {
     setFilters(newFilters);
   };
 
+  // Determinar el título de la categoría actual para el breadcrumb
+  const currentCategoryName = selectedCategory !== "todos" 
+    ? getCategoryName(selectedCategory) 
+    : null;
+
   return (
     <div className="catalog-container">
+      {/* Breadcrumb - Orientación jerárquica */}
+      <Breadcrumb 
+        categoryName={currentCategoryName}
+        customRoutes={{
+          'productos': 'Catálogo'
+        }}
+      />
+      
       <SearchBar onSearch={handleSearch} produtosDisponibles={productos} />
+      
       <CategoryFilter
         onCategoryChange={handleCategoryChange}
         selectedCategory={selectedCategory}
       />
+      
       <AdvancedFilters onFiltersChange={handleFiltersChange} />
 
       <div className="catalog-content">
@@ -110,6 +153,11 @@ export default function Catalog() {
               <p>
                 Mostrando <strong>{filteredProducts.length}</strong> de{" "}
                 <strong>{productos.length}</strong> productos
+                {selectedCategory !== "todos" && (
+                  <span className="category-badge">
+                    en {getCategoryName(selectedCategory)}
+                  </span>
+                )}
               </p>
             </div>
 
@@ -123,4 +171,4 @@ export default function Catalog() {
       </div>
     </div>
   );
-}
+} 

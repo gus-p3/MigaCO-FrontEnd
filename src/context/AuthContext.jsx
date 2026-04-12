@@ -124,6 +124,11 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
     setError(null);
   }, []);
+  const loginWithToken = useCallback(async (token) => {
+  localStorage.setItem("token", token);
+  api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  await loadUser(); // ya tienes esta función, reutilízala
+}, [loadUser]);
 
   const value = {
     user,
@@ -132,8 +137,10 @@ export const AuthProvider = ({ children }) => {
     login,
     register,
     logout,
+     loginWithToken,
     isAuthenticated: !!user,
     isAdmin: user?.role === "admin",
+   
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
