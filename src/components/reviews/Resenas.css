@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Playfair+Display:wght@700;900&display=swap');
 
 :root {
-  --forest: #728156;
-  --sage:   #88976C;
-  --mint:   #B6C99C;
-  --tea:    #CFE1BB;
-  --cream:  #E8F4DC;
+  --primary: #2D006B;
+  --secondary:   #560BAD;
+  --accent:   #7B2CBF;
+  --neutral-light:    #E9D8FD;
+  --neutral-bg:  #FFFFFF;
 }
 
 .resenas-container {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   max-width: 800px;
   margin: 2rem auto;
   padding: 0 1rem;
@@ -25,7 +25,7 @@
 }
 
 .resenas-titulo h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1.6rem;
   color: #3a3a2e;
   margin: 0 0 0.5rem 0;
@@ -40,7 +40,7 @@
 .promedio-numero {
   font-size: 2rem;
   font-weight: 600;
-  color: var(--forest);
+  color: var(--primary);
 }
 
 .promedio-estrellas { display: flex; }
@@ -51,12 +51,12 @@
 }
 
 .btn-nueva-resena {
-  background: var(--forest);
-  color: var(--cream);
+  background: var(--primary);
+  color: var(--neutral-bg);
   border: none;
   padding: 0.6rem 1.2rem;
   border-radius: 50px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -65,11 +65,11 @@
   transition: background 0.2s;
 }
 
-.btn-nueva-resena:hover { background: var(--sage); }
+.btn-nueva-resena:hover { background: var(--secondary); }
 
 /* ── FORMULARIO ── */
 .resena-form {
-  background: var(--cream);
+  background: var(--neutral-bg);
   border-radius: 16px;
   padding: 1.5rem;
   margin-bottom: 2rem;
@@ -88,7 +88,7 @@
   font-size: 0.85rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--forest);
+  color: var(--primary);
   margin: 0;
 }
 
@@ -100,16 +100,16 @@
   transition: color 0.2s;
 }
 
-.estrella.activa { color: var(--forest); }
+.estrella.activa { color: var(--primary); }
 .estrella.interactiva { cursor: pointer; }
-.estrella.interactiva:hover { color: var(--sage); }
+.estrella.interactiva:hover { color: var(--secondary); }
 
 .form-comentario {
   resize: none;
-  border: 1.5px solid var(--tea);
+  border: 1.5px solid var(--neutral-light);
   border-radius: 10px;
   padding: 0.75rem 1rem;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1rem;
   color: #3a3a2e;
   outline: none;
@@ -117,13 +117,13 @@
   background: #fff;
 }
 
-.form-comentario:focus { border-color: var(--sage); }
+.form-comentario:focus { border-color: var(--secondary); }
 
 .form-foto {
-  border: 1.5px solid var(--tea);
+  border: 1.5px solid var(--neutral-light);
   border-radius: 10px;
   padding: 0.6rem 1rem;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.95rem;
   color: #3a3a2e;
   outline: none;
@@ -131,23 +131,23 @@
   background: #fff;
 }
 
-.form-foto:focus { border-color: var(--sage); }
+.form-foto:focus { border-color: var(--secondary); }
 
 .btn-enviar {
-  background: var(--forest);
-  color: var(--cream);
+  background: var(--primary);
+  color: var(--neutral-bg);
   border: none;
   padding: 0.75rem;
   border-radius: 10px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s;
 }
 
-.btn-enviar:hover { background: var(--sage); }
-.btn-enviar:disabled { background: var(--mint); cursor: not-allowed; }
+.btn-enviar:hover { background: var(--secondary); }
+.btn-enviar:disabled { background: var(--accent); cursor: not-allowed; }
 
 /* ── LISTA DE RESEÑAS ── */
 .resenas-vacio {
@@ -158,7 +158,7 @@
 }
 
 .resena-card {
-  border-bottom: 1px solid var(--tea);
+  border-bottom: 1px solid var(--neutral-light);
   padding: 1.5rem 0;
   display: flex;
   flex-direction: column;
@@ -179,8 +179,8 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--forest);
-  color: var(--cream);
+  background: var(--primary);
+  color: var(--neutral-bg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -220,11 +220,11 @@
 
 .resena-verificada {
   font-size: 0.75rem;
-  color: var(--forest);
+  color: var(--primary);
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  border: 1px solid var(--mint);
+  border: 1px solid var(--accent);
   padding: 0.2rem 0.6rem;
   border-radius: 50px;
   width: fit-content;
@@ -238,11 +238,11 @@
 
 .btn-subir-foto {
   background: transparent;
-  border: 1.5px dashed var(--sage);
-  color: var(--forest);
+  border: 1.5px dashed var(--secondary);
+  color: var(--primary);
   padding: 0.7rem 1rem;
   border-radius: 10px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
@@ -251,7 +251,7 @@
 }
 
 .btn-subir-foto:hover {
-  background: var(--cream);
+  background: var(--neutral-bg);
   border-style: solid;
 }
 
@@ -266,14 +266,14 @@
   height: 80px;
   object-fit: cover;
   border-radius: 10px;
-  border: 2px solid var(--tea);
+  border: 2px solid var(--neutral-light);
 }
 
 .btn-quitar-foto {
   background: none;
   border: none;
   color: #e74c3c;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.85rem;
   cursor: pointer;
   text-decoration: underline;

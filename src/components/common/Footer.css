@@ -1,9 +1,9 @@
 .footer {
-  background: var(--forest, #728156);
-  color: var(--cream, #E8F4DC);
+  background: var(--primary, #2D006B);
+  color: var(--neutral-bg, #FFFFFF);
   padding: 3rem 0 1rem;
   margin-top: auto;
-  border-top: 1px solid var(--mint, #B6C99C);
+  border-top: 1px solid var(--accent, #7B2CBF);
 }
 
 .footer-inner {
@@ -21,11 +21,11 @@
 }
 
 .footer-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 1.2rem;
-  color: var(--cream, #E8F4DC);
+  color: var(--neutral-bg, #FFFFFF);
   letter-spacing: 0.02em;
   position: relative;
   display: inline-block;
@@ -38,7 +38,7 @@
   left: 0;
   width: 30px;
   height: 2px;
-  background: var(--mint, #B6C99C);
+  background: var(--accent, #7B2CBF);
 }
 
 .footer-links {
@@ -52,13 +52,13 @@
 }
 
 .footer-links a {
-  color: var(--tea, #CFE1BB);
+  color: var(--neutral-light, #E9D8FD);
   text-decoration: none;
   font-size: 0.9rem;
   transition: all 0.3s;
   display: inline-block;
   position: relative;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .footer-links a::before {
@@ -67,7 +67,7 @@
   left: -18px;
   opacity: 0;
   transition: all 0.3s;
-  color: var(--mint, #B6C99C);
+  color: var(--accent, #7B2CBF);
   font-size: 0.7rem;
 }
 
@@ -109,12 +109,12 @@
 .breadcrumb-list li:not(:last-child)::after {
   content: '/';
   margin-left: 0.5rem;
-  color: var(--mint, #B6C99C);
+  color: var(--accent, #7B2CBF);
   opacity: 0.6;
 }
 
 .breadcrumb-list a {
-  color: var(--tea, #CFE1BB);
+  color: var(--neutral-light, #E9D8FD);
   text-decoration: none;
   transition: color 0.3s;
 }
@@ -124,7 +124,7 @@
 }
 
 .breadcrumb-list li[aria-current="page"] {
-  color: var(--cream, #E8F4DC);
+  color: var(--neutral-bg, #FFFFFF);
   font-weight: 500;
 }
 
@@ -142,16 +142,16 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: rgba(232, 244, 220, 0.1);
-  color: var(--tea, #CFE1BB);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--neutral-light, #E9D8FD);
   text-decoration: none;
   transition: all 0.3s;
-  border: 1px solid var(--mint, #B6C99C);
+  border: 1px solid var(--accent, #7B2CBF);
 }
 
 .social-icons a:hover {
-  background: var(--mint, #B6C99C);
-  color: var(--forest, #728156);
+  background: var(--accent, #7B2CBF);
+  color: var(--primary, #2D006B);
   transform: translateY(-3px);
 }
 
@@ -172,7 +172,7 @@
 .footer-copyright p {
   margin: 0;
   font-size: 0.85rem;
-  color: var(--tea, #CFE1BB);
+  color: var(--neutral-light, #E9D8FD);
 }
 
 .footer-tagline {
@@ -190,7 +190,7 @@
 }
 
 .footer-legal a {
-  color: var(--tea, #CFE1BB);
+  color: var(--neutral-light, #E9D8FD);
   text-decoration: none;
   transition: color 0.3s;
 }
@@ -200,7 +200,7 @@
 }
 
 .separator {
-  color: var(--mint, #B6C99C);
+  color: var(--accent, #7B2CBF);
   opacity: 0.5;
 }
 
@@ -213,29 +213,29 @@
 
 .footer-sitemap-hierarchy summary {
   cursor: pointer;
-  color: var(--mint, #B6C99C);
+  color: var(--accent, #7B2CBF);
   font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   display: inline-block;
   padding: 0.5rem 1rem;
-  border: 1px solid var(--mint, #B6C99C);
+  border: 1px solid var(--accent, #7B2CBF);
   border-radius: 50px;
   transition: all 0.3s;
 }
 
 .footer-sitemap-hierarchy summary:hover {
-  background: var(--mint, #B6C99C);
-  color: var(--forest, #728156);
+  background: var(--accent, #7B2CBF);
+  color: var(--primary, #2D006B);
 }
 
 .sitemap-tree {
   margin-top: 1.5rem;
   padding: 1.5rem;
-  background: rgba(232, 244, 220, 0.05);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
-  border-left: 3px solid var(--mint, #B6C99C);
+  border-left: 3px solid var(--accent, #7B2CBF);
 }
 
 .sitemap-tree ul {
@@ -252,12 +252,12 @@
   content: '└─';
   position: absolute;
   left: -1.5rem;
-  color: var(--mint, #B6C99C);
+  color: var(--accent, #7B2CBF);
   opacity: 0.6;
 }
 
 .sitemap-tree a {
-  color: var(--tea, #CFE1BB);
+  color: var(--neutral-light, #E9D8FD);
   text-decoration: none;
   font-size: 0.9rem;
   transition: color 0.3s;

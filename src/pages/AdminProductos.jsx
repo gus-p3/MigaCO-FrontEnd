@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import api from "../Api/axios";
+import api from "../api/axios";
 import ProductCard from "./AdminProduct"; // Importar ProductCard
 import "./AdminProductos.css";
 

@@ -1,10 +1,17 @@
 
 :root {
-  --forest: #728156;
-  --sage: #88976C;
-  --mint: #B6C99C;
-  --tea: #CFE1BB;
-  --cream: #E8F4DC;
+  --primary: #2D006B;
+  --secondary: #560BAD;
+  --accent: #7B2CBF;
+  --neutral-light: #E9D8FD;
+  --neutral-bg: #FFFFFF;
+
+  /* Aliases de compatibilidad */
+  --forest: var(--primary);
+  --sage: var(--secondary);
+  --mint: var(--accent);
+  --tea: var(--neutral-light);
+  --cream: var(--neutral-bg);
 }
 
 * {
@@ -14,9 +21,9 @@
 }
 
 body {
-  font-family: 'Cormorant Garamond', serif;
-  background: var(--cream);
-  color: var(--forest);
+  font-family: 'Inter', sans-serif;
+  background: var(--neutral-bg);
+  color: var(--primary);
   line-height: 1.6;
 }
 
@@ -58,9 +65,9 @@ body {
 }
 
 .loading-spinner {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1.2rem;
-  color: var(--forest);
+  color: var(--primary);
   position: relative;
   padding-left: 2rem;
 }
@@ -73,8 +80,8 @@ body {
   transform: translateY(-50%);
   width: 20px;
   height: 20px;
-  border: 2px solid var(--mint);
-  border-top-color: var(--forest);
+  border: 2px solid var(--accent);
+  border-top-color: var(--primary);
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
@@ -89,16 +96,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--cream);
+  background: var(--neutral-bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--mint);
+  background: var(--accent);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--sage);
+  background: var(--secondary);
 }
 
 /* Utilidades */

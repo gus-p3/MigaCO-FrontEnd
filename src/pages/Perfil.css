@@ -1,20 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  --forest: #728156;
-  --sage:   #88976C;
-  --mint:   #B6C99C;
-  --tea:    #CFE1BB;
-  --cream:  #E8F4DC;
+  --primary: #2D006B;
+  --secondary:   #560BAD;
+  --accent:   #7B2CBF;
+  --neutral-light:    #E9D8FD;
+  --neutral-bg:  #FFFFFF;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 /* ── ROOT ── */
 .pf-root {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   min-height: 100vh;
-  background: var(--cream);
+  background: var(--neutral-bg);
   position: relative;
   overflow-x: hidden;
   padding-top: 0;
@@ -25,7 +25,7 @@
   position: fixed;
   top: -100px; right: -100px;
   width: 500px; height: 500px;
-  background: radial-gradient(circle, var(--tea), transparent 70%);
+  background: radial-gradient(circle, var(--neutral-light), transparent 70%);
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
@@ -54,9 +54,9 @@
 }
 
 .loading-spinner {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.2rem;
-  color: var(--forest);
+  color: var(--primary);
   padding: 2rem;
   font-style: italic;
 }
@@ -72,13 +72,13 @@
   background: white;
   border-radius: 1.5rem;
   padding: 2rem;
-  box-shadow: 0 8px 28px rgba(114,129,86,0.12);
+  box-shadow: 0 8px 28px rgba(45,0,107,0.12);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .pf-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(114,129,86,0.16);
+  box-shadow: 0 12px 32px rgba(45,0,107,0.16);
 }
 
 .pf-avatar-wrap {
@@ -87,7 +87,7 @@
   align-items: center;
   gap: 1rem;
   padding-bottom: 1.75rem;
-  border-bottom: 2px solid var(--tea);
+  border-bottom: 2px solid var(--neutral-light);
   margin-bottom: 1.75rem;
 }
 
@@ -95,26 +95,26 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--forest), var(--sage));
-  color: var(--cream);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: var(--neutral-bg);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 2.5rem;
   font-weight: 900;
-  border: 4px solid var(--mint);
-  box-shadow: 0 4px 12px rgba(114,129,86,0.2);
+  border: 4px solid var(--accent);
+  box-shadow: 0 4px 12px rgba(45,0,107,0.2);
   transition: transform 0.2s;
 }
 
 .pf-avatar:hover { transform: scale(1.05); }
 
 .pf-sidebar-name {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1.35rem;
   font-weight: 800;
-  color: var(--forest);
+  color: var(--primary);
   text-align: center;
   letter-spacing: -0.3px;
   margin-top: 0.25rem;
@@ -122,7 +122,7 @@
 
 .pf-sidebar-email {
   font-size: 0.9rem;
-  color: var(--sage);
+  color: var(--secondary);
   text-align: center;
   opacity: 0.85;
   word-break: break-all;
@@ -132,8 +132,8 @@
   font-size: 0.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--mint);
-  background: var(--cream);
+  color: var(--accent);
+  background: var(--neutral-bg);
   padding: 0.3rem 0.8rem;
   border-radius: 20px;
   display: inline-block;
@@ -150,26 +150,26 @@
   font-size: 0.9rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: var(--secondary);
   transition: all 0.2s;
   border: none;
   background: none;
   width: 100%;
   text-align: left;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
   position: relative;
 }
 
 .pf-nav-item:hover {
-  background: var(--cream);
-  color: var(--forest);
+  background: var(--neutral-bg);
+  color: var(--primary);
   transform: translateX(4px);
 }
 
 .pf-nav-item.active {
-  background: var(--tea);
-  color: var(--forest);
+  background: var(--neutral-light);
+  color: var(--primary);
   font-weight: 700;
 }
 
@@ -179,7 +179,7 @@
   left: 0; top: 50%;
   transform: translateY(-50%);
   width: 3px; height: 70%;
-  background: var(--forest);
+  background: var(--primary);
   border-radius: 3px;
 }
 
@@ -191,7 +191,7 @@
 .pf-logout-btn {
   margin-top: 1rem;
   color: #b65c5c;
-  border-top: 1.5px solid var(--tea);
+  border-top: 1.5px solid var(--neutral-light);
   border-radius: 0;
   padding-top: 1.25rem;
 }
@@ -210,22 +210,22 @@
 }
 
 .pf-section-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1.8rem;
   font-weight: 900;
-  color: var(--forest);
+  color: var(--primary);
   line-height: 1;
 }
 
 .pf-section-title em {
   font-style: italic;
-  color: var(--sage);
+  color: var(--secondary);
   font-weight: 700;
 }
 
 .pf-section-sub {
   font-size: 0.95rem;
-  color: var(--sage);
+  color: var(--secondary);
   margin-top: 0.4rem;
   opacity: 0.85;
 }
@@ -238,12 +238,12 @@
 
 .pf-add-btn-mobile {
   display: none;
-  background: var(--forest);
-  color: var(--cream);
+  background: var(--primary);
+  color: var(--neutral-bg);
   border: none;
   padding: 0.6rem 1.2rem;
   border-radius: 10px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -255,7 +255,7 @@
 }
 
 .pf-add-btn-mobile:hover {
-  background: var(--sage);
+  background: var(--secondary);
   transform: scale(1.02);
 }
 
@@ -270,7 +270,7 @@
   background: white;
   border-radius: 1.25rem;
   padding: 1.75rem 2rem;
-  box-shadow: 0 2px 12px rgba(114,129,86,0.07);
+  box-shadow: 0 2px 12px rgba(45,0,107,0.07);
   border: 1.5px solid transparent;
   position: relative;
   transition: border-color 0.2s, box-shadow 0.2s;
@@ -280,23 +280,23 @@
 }
 
 .pf-addr-card:hover {
-  border-color: var(--mint);
-  box-shadow: 0 6px 24px rgba(114,129,86,0.13);
+  border-color: var(--accent);
+  box-shadow: 0 6px 24px rgba(45,0,107,0.13);
 }
 
-.pf-addr-card.principal { border-color: var(--sage); }
+.pf-addr-card.principal { border-color: var(--secondary); }
 
 .pf-addr-icon-col {
   width: 52px; height: 52px;
   flex-shrink: 0;
-  background: var(--cream);
+  background: var(--neutral-bg);
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   font-size: 1.5rem;
 }
 
 .pf-addr-card.principal .pf-addr-icon-col {
-  background: var(--tea);
+  background: var(--neutral-light);
 }
 
 .pf-addr-body { flex: 1; min-width: 0; }
@@ -312,23 +312,23 @@
   font-size: 0.65rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  background: var(--tea);
-  color: var(--forest);
+  background: var(--neutral-light);
+  color: var(--primary);
   padding: 0.22rem 0.65rem;
   border-radius: 999px;
   font-weight: 600;
 }
 
 .pf-addr-badge.main-badge {
-  background: var(--forest);
-  color: var(--cream);
+  background: var(--primary);
+  color: var(--neutral-bg);
 }
 
 .pf-addr-label {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--forest);
+  color: var(--primary);
   margin-bottom: 0.3rem;
   white-space: nowrap;
   overflow: hidden;
@@ -337,13 +337,13 @@
 
 .pf-addr-text {
   font-size: 0.95rem;
-  color: var(--sage);
+  color: var(--secondary);
   line-height: 1.5;
 }
 
 .pf-addr-ref {
   font-size: 0.82rem;
-  color: var(--mint);
+  color: var(--accent);
   font-style: italic;
   margin-top: 0.2rem;
 }
@@ -359,7 +359,7 @@
   display: flex; align-items: center; gap: 0.4rem;
   padding: 0.5rem 1rem;
   border-radius: 8px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -370,8 +370,8 @@
   white-space: nowrap;
 }
 
-.pf-btn-edit { background: var(--cream); color: var(--forest); }
-.pf-btn-edit:hover { background: var(--tea); transform: translateY(-2px); }
+.pf-btn-edit { background: var(--neutral-bg); color: var(--primary); }
+.pf-btn-edit:hover { background: var(--neutral-light); transform: translateY(-2px); }
 
 .pf-btn-delete { background: #fff0f0; color: #b94040; }
 .pf-btn-delete:hover { background: #ffe0e0; transform: translateY(-2px); }
@@ -380,18 +380,18 @@
   background: white;
   border-radius: 1.25rem;
   padding: 1.6rem 2rem;
-  border: 1.5px dashed var(--mint);
+  border: 1.5px dashed var(--accent);
   display: flex; align-items: center; justify-content: center;
   gap: 0.75rem;
   cursor: pointer;
   transition: all 0.2s;
-  color: var(--mint);
+  color: var(--accent);
 }
 
 .pf-addr-add:hover {
-  border-color: var(--sage);
-  color: var(--sage);
-  background: var(--cream);
+  border-color: var(--secondary);
+  color: var(--secondary);
+  background: var(--neutral-bg);
   transform: scale(1.01);
 }
 
@@ -408,11 +408,11 @@
   padding: 3rem;
   background: white;
   border-radius: 1.25rem;
-  border: 1.5px dashed var(--mint);
+  border: 1.5px dashed var(--accent);
 }
 
 .pf-empty-state p {
-  color: var(--sage);
+  color: var(--secondary);
   margin-bottom: 1rem;
   font-size: 1rem;
   font-style: italic;
@@ -426,12 +426,12 @@
 }
 
 .pf-empty-btn {
-  background: var(--forest);
-  color: var(--cream);
+  background: var(--primary);
+  color: var(--neutral-bg);
   border: none;
   padding: 0.72rem 1.5rem;
   border-radius: 999px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.16em;
@@ -439,14 +439,14 @@
   cursor: pointer;
   transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
   margin-top: 0.6rem;
-  box-shadow: 0 3px 12px rgba(114,129,86,0.28);
+  box-shadow: 0 3px 12px rgba(45,0,107,0.28);
   display: inline-block;
 }
 
 .pf-empty-btn:hover {
-  background: var(--sage);
+  background: var(--secondary);
   transform: translateY(-2px);
-  box-shadow: 0 5px 18px rgba(114,129,86,0.35);
+  box-shadow: 0 5px 18px rgba(45,0,107,0.35);
 }
 
 /* ── PEDIDOS ── */
@@ -460,14 +460,14 @@
   background: white;
   border-radius: 1.25rem;
   padding: 1.5rem 1.75rem;
-  box-shadow: 0 2px 14px rgba(114,129,86,0.08);
+  box-shadow: 0 2px 14px rgba(45,0,107,0.08);
   border: 1.5px solid transparent;
   transition: border-color 0.2s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .pf-pedido-card:hover {
-  border-color: var(--mint);
-  box-shadow: 0 6px 24px rgba(114,129,86,0.14);
+  border-color: var(--accent);
+  box-shadow: 0 6px 24px rgba(45,0,107,0.14);
   transform: translateY(-2px);
 }
 
@@ -477,22 +477,22 @@
   align-items: flex-start;
   margin-bottom: 1rem;
   padding-bottom: 0.85rem;
-  border-bottom: 1px solid var(--tea);
+  border-bottom: 1px solid var(--neutral-light);
   gap: 0.75rem;
 }
 
 .pf-pedido-numero {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-weight: 700;
   font-size: 1rem;
-  color: var(--forest);
+  color: var(--primary);
   letter-spacing: -0.01em;
   line-height: 1.1;
 }
 
 .pf-pedido-fecha {
   font-size: 0.75rem;
-  color: var(--sage);
+  color: var(--secondary);
   margin-left: 0.6rem;
   opacity: 0.8;
   font-style: italic;
@@ -524,7 +524,7 @@
   gap: 0.6rem;
   padding: 0.45rem 0;
   font-size: 0.9rem;
-  border-bottom: 1px solid var(--tea);
+  border-bottom: 1px solid var(--neutral-light);
 }
 
 .pf-pedido-item:last-child { border-bottom: none; }
@@ -532,35 +532,35 @@
 .pf-pedido-item::before {
   content: '✦';
   font-size: 0.5rem;
-  color: var(--mint);
+  color: var(--accent);
   flex-shrink: 0;
 }
 
 .pf-pedido-item-cantidad {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-weight: 700;
   font-size: 0.88rem;
-  color: var(--forest);
+  color: var(--primary);
   min-width: 32px;
 }
 
 .pf-pedido-item-nombre {
   flex: 1;
-  color: var(--sage);
+  color: var(--secondary);
   font-size: 0.9rem;
   line-height: 1.4;
 }
 
 .pf-pedido-item-precio {
   font-weight: 600;
-  color: var(--forest);
+  color: var(--primary);
   font-size: 0.88rem;
   letter-spacing: 0.02em;
 }
 
 .pf-pedido-mas {
   font-size: 0.72rem;
-  color: var(--mint);
+  color: var(--accent);
   padding-top: 0.4rem;
   font-style: italic;
   letter-spacing: 0.08em;
@@ -572,7 +572,7 @@
   align-items: center;
   margin-top: 0.75rem;
   padding-top: 0.85rem;
-  border-top: 1px solid var(--tea);
+  border-top: 1px solid var(--neutral-light);
   flex-wrap: wrap;
   gap: 0.5rem;
 }
@@ -581,12 +581,12 @@
   font-size: 0.78rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: var(--secondary);
 }
 
 .pf-pedido-total strong {
-  font-family: 'Playfair Display', serif;
-  color: var(--forest);
+  font-family: 'Outfit', sans-serif;
+  color: var(--primary);
   font-size: 1.15rem;
   font-weight: 900;
   letter-spacing: -0.01em;
@@ -601,10 +601,10 @@
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  background: var(--cream);
+  background: var(--neutral-bg);
   padding: 0.22rem 0.65rem;
   border-radius: 999px;
-  border: 1px solid var(--mint);
+  border: 1px solid var(--accent);
 }
 
 /* ── PROFILE TAB ── */
@@ -621,22 +621,22 @@
   font-size: 0.7rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: var(--secondary);
   margin-bottom: 0.3rem;
 }
 
 .pf-info-field .val {
   font-size: 1.05rem;
-  color: var(--forest);
+  color: var(--primary);
   font-weight: 600;
   padding: 0.6rem 0;
-  border-bottom: 1px solid var(--tea);
+  border-bottom: 1px solid var(--neutral-light);
 }
 
 .pf-profile-actions {
   margin-top: 1.5rem;
   padding-top: 1rem;
-  border-top: 1px solid var(--tea);
+  border-top: 1px solid var(--neutral-light);
   display: flex;
   justify-content: flex-end;
 }
@@ -644,21 +644,21 @@
 .pf-edit-profile-btn {
   display: flex; align-items: center; gap: 0.5rem;
   padding: 0.6rem 1.2rem;
-  background: var(--cream);
+  background: var(--neutral-bg);
   border: none;
   border-radius: 8px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--forest);
+  color: var(--primary);
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .pf-edit-profile-btn:hover {
-  background: var(--tea);
+  background: var(--neutral-light);
   transform: translateY(-2px);
 }
 
@@ -686,23 +686,23 @@
 }
 
 .pf-modal-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1.5rem;
   font-weight: 900;
-  color: var(--forest);
+  color: var(--primary);
 }
 
-.pf-modal-title em { font-style: italic; color: var(--sage); }
+.pf-modal-title em { font-style: italic; color: var(--secondary); }
 
 .pf-modal-close {
-  background: var(--cream); border: none;
+  background: var(--neutral-bg); border: none;
   width: 32px; height: 32px;
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  cursor: pointer; color: var(--sage); font-size: 1rem;
+  cursor: pointer; color: var(--secondary); font-size: 1rem;
   transition: background 0.2s;
 }
-.pf-modal-close:hover { background: var(--tea); }
+.pf-modal-close:hover { background: var(--neutral-light); }
 
 .pf-form-grid {
   display: grid;
@@ -717,7 +717,7 @@
   font-size: 0.7rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--forest);
+  color: var(--primary);
   font-weight: 600;
   margin-bottom: 0.35rem;
 }
@@ -726,64 +726,64 @@
 .pf-field select {
   width: 100%;
   padding: 0.7rem 0.9rem;
-  border: 1.5px solid var(--mint);
+  border: 1.5px solid var(--accent);
   border-radius: 8px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.98rem;
-  color: var(--forest);
+  color: var(--primary);
   background: white;
   outline: none;
   transition: border-color 0.2s;
   appearance: none;
 }
 
-.pf-field input::placeholder { color: var(--mint); }
+.pf-field input::placeholder { color: var(--accent); }
 .pf-field input:focus,
-.pf-field select:focus { border-color: var(--sage); }
+.pf-field select:focus { border-color: var(--secondary); }
 
 .pf-checkbox-row {
   display: flex; align-items: center; gap: 0.5rem;
   font-size: 0.88rem;
-  color: var(--sage);
+  color: var(--secondary);
   cursor: pointer;
 }
-.pf-checkbox-row input { accent-color: var(--forest); width: 15px; height: 15px; }
+.pf-checkbox-row input { accent-color: var(--primary); width: 15px; height: 15px; }
 
 .pf-modal-footer {
   display: flex; gap: 0.75rem;
   margin-top: 1.5rem;
   padding-top: 1.25rem;
-  border-top: 1px solid var(--tea);
+  border-top: 1px solid var(--neutral-light);
 }
 
 .pf-btn-cancel {
   flex: 1;
   padding: 0.8rem;
-  background: var(--cream);
-  color: var(--sage);
+  background: var(--neutral-bg);
+  color: var(--secondary);
   border: none; border-radius: 8px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.78rem; font-weight: 600;
   letter-spacing: 0.15em; text-transform: uppercase;
   cursor: pointer; transition: background 0.2s;
 }
-.pf-btn-cancel:hover { background: var(--tea); }
+.pf-btn-cancel:hover { background: var(--neutral-light); }
 
 .pf-btn-save {
   flex: 2;
   padding: 0.8rem;
-  background: var(--forest);
-  color: var(--cream);
+  background: var(--primary);
+  color: var(--neutral-bg);
   border: none; border-radius: 8px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.78rem; font-weight: 600;
   letter-spacing: 0.15em; text-transform: uppercase;
   cursor: pointer;
   transition: background 0.2s, box-shadow 0.2s;
-  box-shadow: 0 3px 12px rgba(114,129,86,0.28);
+  box-shadow: 0 3px 12px rgba(45,0,107,0.28);
   display: flex; align-items: center; justify-content: center; gap: 0.5rem;
 }
-.pf-btn-save:hover { background: var(--sage); }
+.pf-btn-save:hover { background: var(--secondary); }
 
 .pf-confirm-body {
   text-align: center;
@@ -800,16 +800,16 @@
 }
 
 .pf-confirm-body h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1.3rem;
   font-weight: 700;
-  color: var(--forest);
+  color: var(--primary);
   margin-bottom: 0.5rem;
 }
 
 .pf-confirm-body p {
   font-size: 0.95rem;
-  color: var(--sage);
+  color: var(--secondary);
   line-height: 1.6;
 }
 
@@ -819,7 +819,7 @@
   background: #b94040;
   color: white;
   border: none; border-radius: 8px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.78rem; font-weight: 600;
   letter-spacing: 0.15em; text-transform: uppercase;
   cursor: pointer; transition: background 0.2s;
@@ -830,13 +830,13 @@
 .pf-toast {
   position: fixed;
   bottom: 2rem; right: 2rem;
-  background: var(--forest);
-  color: var(--cream);
+  background: var(--primary);
+  color: var(--neutral-bg);
   padding: 0.9rem 1.4rem;
   border-radius: 10px;
   font-size: 0.82rem;
   letter-spacing: 0.08em;
-  box-shadow: 0 6px 24px rgba(114,129,86,0.35);
+  box-shadow: 0 6px 24px rgba(45,0,107,0.35);
   z-index: 200;
   display: flex; align-items: center; gap: 0.6rem;
 }
@@ -875,9 +875,9 @@
   flex-direction: column;
   gap: 0.5rem;
   padding: 0.85rem 1rem;
-  background: var(--cream);
+  background: var(--neutral-bg);
   border-radius: 0.75rem;
-  border-left: 3px solid var(--sage);
+  border-left: 3px solid var(--secondary);
   position: relative;
 }
 
@@ -888,7 +888,7 @@
   font-size: 0.62rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--forest);
+  color: var(--primary);
   font-weight: 700;
 }
 
@@ -900,27 +900,27 @@
 }
 
 .pf-pedido-dir-calle {
-  font-family: "Playfair Display", serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 0.92rem;
   font-weight: 700;
-  color: var(--forest);
+  color: var(--primary);
   line-height: 1.3;
 }
 
 .pf-pedido-dir-ciudad {
   font-size: 0.82rem;
-  color: var(--sage);
+  color: var(--secondary);
 }
 
 .pf-pedido-dir-ref {
   font-size: 0.75rem;
-  color: var(--mint);
+  color: var(--accent);
   font-style: italic;
 }
 
 .pf-pedido-dir-na {
   font-size: 0.78rem;
-  color: var(--sage);
+  color: var(--secondary);
   font-style: italic;
   opacity: 0.65;
 }

@@ -1,20 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  --forest: #728156;
-  --sage:   #88976C;
-  --mint:   #B6C99C;
-  --tea:    #CFE1BB;
-  --cream:  #E8F4DC;
+  --primary: #2D006B;
+  --secondary:   #560BAD;
+  --accent:   #7B2CBF;
+  --neutral-light:    #E9D8FD;
+  --neutral-bg:  #FFFFFF;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 /* ── ROOT ── */
 .admin-pedidos-container {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   min-height: 100vh;
-  background: var(--cream);
+  background: var(--neutral-bg);
   padding: 3rem 2.5rem 4rem;
   position: relative;
   overflow-x: hidden;
@@ -25,7 +25,7 @@
   position: fixed;
   top: -120px; right: -120px;
   width: 520px; height: 520px;
-  background: radial-gradient(circle, var(--tea), transparent 70%);
+  background: radial-gradient(circle, var(--neutral-light), transparent 70%);
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
@@ -37,7 +37,7 @@
   position: fixed;
   bottom: -80px; left: -80px;
   width: 380px; height: 380px;
-  background: radial-gradient(circle, var(--mint), transparent 70%);
+  background: radial-gradient(circle, var(--accent), transparent 70%);
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
@@ -53,17 +53,17 @@
 }
 
 .admin-header h1 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 900;
-  color: var(--forest);
+  color: var(--primary);
   line-height: 1;
   letter-spacing: -0.02em;
 }
 
 .admin-header h1::after {
   content: '.';
-  color: var(--mint);
+  color: var(--accent);
 }
 
 /* ── FILTER TABS ── */
@@ -78,20 +78,20 @@
   background: white;
   padding: 0.5rem;
   border-radius: 999px;
-  box-shadow: 0 2px 14px rgba(114,129,86,0.09);
-  border: 1.5px solid var(--mint);
+  box-shadow: 0 2px 14px rgba(45,0,107,0.09);
+  border: 1.5px solid var(--accent);
 }
 
 .filtros button {
   padding: 0.5rem 1.1rem;
   border: none;
   border-radius: 999px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: var(--secondary);
   background: transparent;
   cursor: pointer;
   transition: all 0.2s;
@@ -99,14 +99,14 @@
 }
 
 .filtros button:hover {
-  background: var(--cream);
-  color: var(--forest);
+  background: var(--neutral-bg);
+  color: var(--primary);
 }
 
 .filtros button.active {
-  background: var(--forest);
-  color: var(--cream);
-  box-shadow: 0 2px 10px rgba(114,129,86,0.28);
+  background: var(--primary);
+  color: var(--neutral-bg);
+  box-shadow: 0 2px 10px rgba(45,0,107,0.28);
 }
 
 /* ── LOADING ── */
@@ -119,18 +119,18 @@
   justify-content: center;
   gap: 1rem;
   min-height: 280px;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-style: italic;
   font-size: 1.15rem;
-  color: var(--sage);
+  color: var(--secondary);
   opacity: 0.75;
 }
 
 .loading-spinner::before {
   content: '';
   width: 36px; height: 36px;
-  border: 2.5px solid var(--mint);
-  border-top-color: var(--forest);
+  border: 2.5px solid var(--accent);
+  border-top-color: var(--primary);
   border-radius: 50%;
   animation: spin 0.85s linear infinite;
 }
@@ -151,13 +151,13 @@
   min-height: 260px;
   background: white;
   border-radius: 1.25rem;
-  border: 1.5px dashed var(--mint);
+  border: 1.5px dashed var(--accent);
   padding: 3rem;
   text-align: center;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-style: italic;
   font-size: 1.2rem;
-  color: var(--sage);
+  color: var(--secondary);
   opacity: 0.7;
 }
 
@@ -177,7 +177,7 @@
   background: white;
   border-radius: 1.25rem;
   padding: 1.6rem 1.75rem;
-  box-shadow: 0 2px 14px rgba(114,129,86,0.08);
+  box-shadow: 0 2px 14px rgba(45,0,107,0.08);
   border: 1.5px solid transparent;
   transition: border-color 0.2s, box-shadow 0.2s;
   display: flex;
@@ -186,8 +186,8 @@
 }
 
 .pedido-card:hover {
-  border-color: var(--mint);
-  box-shadow: 0 6px 24px rgba(114,129,86,0.13);
+  border-color: var(--accent);
+  box-shadow: 0 6px 24px rgba(45,0,107,0.13);
 }
 
 /* ── CARD HEADER ── */
@@ -199,16 +199,16 @@
 }
 
 .pedido-header h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--forest);
+  color: var(--primary);
   letter-spacing: -0.01em;
 }
 
 .pedido-header .fecha {
   font-size: 0.78rem;
-  color: var(--sage);
+  color: var(--secondary);
   margin-top: 0.2rem;
   opacity: 0.8;
   letter-spacing: 0.06em;
@@ -251,13 +251,13 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 0.5rem 1.5rem;
   padding: 0.9rem 1.1rem;
-  background: var(--cream);
+  background: var(--neutral-bg);
   border-radius: 0.75rem;
 }
 
 .pedido-info p {
   font-size: 0.9rem;
-  color: var(--sage);
+  color: var(--secondary);
   line-height: 1.4;
 }
 
@@ -266,15 +266,15 @@
   font-size: 0.65rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--forest);
+  color: var(--primary);
   font-weight: 600;
   margin-bottom: 0.15rem;
 }
 
 /* price highlight */
 .pedido-info p:last-child {
-  color: var(--forest);
-  font-family: 'Playfair Display', serif;
+  color: var(--primary);
+  font-family: 'Outfit', sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
 }
@@ -290,7 +290,7 @@
   font-size: 0.68rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--forest);
+  color: var(--primary);
   font-weight: 600;
   margin-bottom: 0.1rem;
 }
@@ -300,15 +300,15 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 0.9rem;
-  color: var(--sage);
+  color: var(--secondary);
   padding: 0.3rem 0;
-  border-bottom: 1px solid var(--tea);
+  border-bottom: 1px solid var(--neutral-light);
 }
 
 .producto-item::before {
   content: '✦';
   font-size: 0.55rem;
-  color: var(--mint);
+  color: var(--accent);
   flex-shrink: 0;
 }
 
@@ -320,24 +320,24 @@
   align-items: center;
   justify-content: flex-end;
   padding-top: 0.5rem;
-  border-top: 1px solid var(--tea);
+  border-top: 1px solid var(--neutral-light);
 }
 
 .estado-select {
   padding: 0.6rem 1.1rem;
-  border: 1.5px solid var(--mint);
+  border: 1.5px solid var(--accent);
   border-radius: 8px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--forest);
+  color: var(--primary);
   background: white;
   outline: none;
   cursor: pointer;
   transition: border-color 0.2s, box-shadow 0.2s;
   appearance: none;
   /* custom arrow */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2388976C' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23560BAD' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.85rem center;
   padding-right: 2.4rem;
@@ -345,21 +345,21 @@
 }
 
 .estado-select:focus {
-  border-color: var(--sage);
-  box-shadow: 0 0 0 3px rgba(136,151,108,0.13);
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(86,11,173,0.13);
 }
 
 /* ── TOAST ── */
 .toast {
   position: fixed;
   bottom: 2rem; right: 2rem;
-  background: var(--forest);
-  color: var(--cream);
+  background: var(--primary);
+  color: var(--neutral-bg);
   padding: 0.9rem 1.5rem;
   border-radius: 10px;
   font-size: 0.85rem;
   letter-spacing: 0.05em;
-  box-shadow: 0 6px 24px rgba(114,129,86,0.32);
+  box-shadow: 0 6px 24px rgba(45,0,107,0.32);
   z-index: 200;
   animation: slideUp 0.3s ease;
 }
@@ -389,16 +389,16 @@
 /* ── DIRECCIÓN DE ENTREGA ── */
 .pedido-direccion {
   padding: 0.9rem 1.1rem;
-  background: var(--cream);
+  background: var(--neutral-bg);
   border-radius: 0.75rem;
-  border-left: 3px solid var(--sage);
+  border-left: 3px solid var(--secondary);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
 .pedido-direccion-empty {
-  border-left-color: var(--mint);
+  border-left-color: var(--accent);
   opacity: 0.7;
 }
 
@@ -409,7 +409,7 @@
   font-size: 0.68rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--forest);
+  color: var(--primary);
 }
 
 .pedido-dir-body {
@@ -423,8 +423,8 @@
   font-size: 0.62rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  background: var(--tea);
-  color: var(--forest);
+  background: var(--neutral-light);
+  color: var(--primary);
   padding: 0.15rem 0.55rem;
   border-radius: 999px;
   font-weight: 700;
@@ -433,27 +433,27 @@
 }
 
 .pedido-dir-calle {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--forest);
+  color: var(--primary);
   line-height: 1.3;
 }
 
 .pedido-dir-ciudad {
   font-size: 0.85rem;
-  color: var(--sage);
+  color: var(--secondary);
 }
 
 .pedido-dir-ref {
   font-size: 0.78rem;
-  color: var(--mint);
+  color: var(--accent);
   font-style: italic;
 }
 
 .pedido-dir-na {
   font-size: 0.82rem;
-  color: var(--sage);
+  color: var(--secondary);
   font-style: italic;
   opacity: 0.7;
 }
@@ -466,7 +466,7 @@
   padding: 1rem 1.2rem;
   background: white;
   border-radius: 0.85rem;
-  border: 1.5px solid var(--mint);
+  border: 1.5px solid var(--accent);
   position: relative;
   overflow: hidden;
 }
@@ -477,18 +477,18 @@
   position: absolute;
   left: 0; top: 0; bottom: 0;
   width: 3px;
-  background: linear-gradient(to bottom, var(--forest), var(--sage));
+  background: linear-gradient(to bottom, var(--primary), var(--secondary));
   border-radius: 3px 0 0 3px;
 }
 
 .pedido-direccion-empty {
   border-style: dashed;
-  border-color: var(--mint);
+  border-color: var(--accent);
   opacity: 0.65;
 }
 
 .pedido-direccion-empty::before {
-  background: var(--mint);
+  background: var(--accent);
 }
 
 /* head: ícono + label */
@@ -499,7 +499,7 @@
   font-size: 0.65rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--forest);
+  color: var(--primary);
   font-weight: 700;
 }
 
@@ -518,8 +518,8 @@
   letter-spacing: 0.15em;
   text-transform: uppercase;
   font-weight: 700;
-  color: var(--forest);
-  background: var(--tea);
+  color: var(--primary);
+  background: var(--neutral-light);
   padding: 0.18rem 0.6rem;
   border-radius: 999px;
   align-self: flex-start;
@@ -527,29 +527,29 @@
 }
 
 .pedido-dir-calle {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1rem;
   font-weight: 700;
-  color: var(--forest);
+  color: var(--primary);
   line-height: 1.3;
 }
 
 .pedido-dir-ciudad {
   font-size: 0.85rem;
-  color: var(--sage);
+  color: var(--secondary);
   letter-spacing: 0.02em;
 }
 
 .pedido-dir-ref {
   font-size: 0.78rem;
-  color: var(--mint);
+  color: var(--accent);
   font-style: italic;
   margin-top: 0.1rem;
 }
 
 .pedido-dir-na {
   font-size: 0.82rem;
-  color: var(--sage);
+  color: var(--secondary);
   font-style: italic;
   opacity: 0.7;
 }

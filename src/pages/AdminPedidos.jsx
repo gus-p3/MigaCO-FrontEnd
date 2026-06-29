@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import api from "../Api/axios";
+import api from "../api/axios";
 import "./AdminPedidos.css";
 
 export default function AdminPedidos() {
