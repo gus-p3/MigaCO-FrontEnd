@@ -1,12 +1,12 @@
 /* Hero.css */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  --forest: #728156;
-  --sage: #88976C;
-  --mint: #B6C99C;
-  --tea: #CFE1BB;
-  --cream: #E8F4DC;
+  --primary: #2D006B;
+  --secondary: #560BAD;
+  --accent: #7B2CBF;
+  --neutral-light: #E9D8FD;
+  --neutral-bg: #FFFFFF;
 }
 
 .hero-section {
@@ -17,8 +17,8 @@
   padding-top: 72px;
   position: relative;
   overflow: hidden;
-  font-family: 'Cormorant Garamond', serif;
-  background: var(--cream);
+  font-family: 'Inter', sans-serif;
+  background: var(--neutral-bg);
 }
 
 .hero-section::before {
@@ -26,7 +26,7 @@
   position: absolute;
   top: -20%; right: -5%;
   width: 60vw; height: 90vh;
-  background: radial-gradient(ellipse, var(--tea) 0%, transparent 70%);
+  background: radial-gradient(ellipse, var(--neutral-light) 0%, transparent 70%);
   border-radius: 50%;
   z-index: 0;
 }
@@ -49,7 +49,7 @@
   font-size: 0.75rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: var(--secondary);
   margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
@@ -60,27 +60,27 @@
   content: '';
   display: block;
   width: 32px; height: 1px;
-  background: var(--sage);
+  background: var(--secondary);
 }
 
 .hero-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: clamp(3.5rem, 7vw, 6rem);
   font-weight: 900;
   line-height: 1.0;
-  color: var(--forest);
+  color: var(--primary);
   margin-bottom: 2rem;
   letter-spacing: -0.02em;
 }
 
 .hero-title em {
   font-style: italic;
-  color: var(--sage);
+  color: var(--secondary);
   display: block;
 }
 
 .hero-title .outlined {
-  -webkit-text-stroke: 2px var(--forest);
+  -webkit-text-stroke: 2px var(--primary);
   color: transparent;
   display: block;
 }
@@ -88,7 +88,7 @@
 .hero-desc {
   font-size: 1.2rem;
   line-height: 1.8;
-  color: var(--sage);
+  color: var(--secondary);
   max-width: 380px;
   font-style: italic;
   margin-bottom: 2.5rem;
@@ -98,10 +98,10 @@
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  background: var(--forest);
-  color: var(--cream);
+  background: var(--primary);
+  color: var(--neutral-bg);
   padding: 0.9rem 2rem;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.85rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -112,7 +112,7 @@
 }
 
 .hero-cta:hover {
-  background: var(--sage);
+  background: var(--secondary);
   gap: 1.2rem;
 }
 
@@ -142,17 +142,17 @@
   position: absolute;
   bottom: 2.5rem;
   left: -1.5rem;
-  background: var(--mint);
+  background: var(--accent);
   padding: 1.2rem 1.5rem;
   z-index: 2;
 }
 
 .hero-img-badge strong {
   display: block;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 2rem;
   font-weight: 900;
-  color: var(--forest);
+  color: var(--primary);
   line-height: 1;
 }
 
@@ -160,13 +160,13 @@
   font-size: 0.75rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: var(--secondary);
 }
 
 .deco-circle {
   position: absolute;
   border-radius: 50%;
-  border: 1px solid var(--mint);
+  border: 1px solid var(--accent);
   pointer-events: none;
 }
 
@@ -209,15 +209,15 @@
   gap: 2rem;
   margin-top: 2.5rem;
   padding-top: 2rem;
-  border-top: 1px solid var(--mint);
+  border-top: 1px solid var(--accent);
 }
 
 .hero-stat strong {
   display: block;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1.6rem;
   font-weight: 900;
-  color: var(--forest);
+  color: var(--primary);
   line-height: 1;
   letter-spacing: -0.02em;
 }
@@ -227,7 +227,7 @@
   font-size: 0.68rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: var(--secondary);
   margin-top: 0.25rem;
   opacity: 0.8;
 }
@@ -239,7 +239,7 @@
   font-size: 0.72rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: var(--secondary);
   margin-bottom: 0.75rem;
   display: flex;
   align-items: center;
@@ -250,15 +250,15 @@
   content: '';
   display: block;
   width: 28px; height: 1px;
-  background: var(--sage);
+  background: var(--secondary);
   flex-shrink: 0;
 }
 
 .section-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: clamp(2.2rem, 4vw, 3.2rem);
   font-weight: 900;
-  color: var(--forest);
+  color: var(--primary);
   line-height: 1.1;
   letter-spacing: -0.02em;
   margin-bottom: 1.25rem;
@@ -266,13 +266,13 @@
 
 .section-title em {
   font-style: italic;
-  color: var(--sage);
+  color: var(--secondary);
 }
 
 .section-lead {
   font-size: 1.1rem;
   line-height: 1.8;
-  color: var(--sage);
+  color: var(--secondary);
   max-width: 560px;
   opacity: 0.85;
 }
@@ -285,7 +285,7 @@
   padding: 6rem 0;
   position: relative;
   overflow: hidden;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .about-section::before {
@@ -293,7 +293,7 @@
   position: absolute;
   top: -60px; left: -60px;
   width: 360px; height: 360px;
-  background: radial-gradient(circle, var(--tea), transparent 70%);
+  background: radial-gradient(circle, var(--neutral-light), transparent 70%);
   border-radius: 50%;
   opacity: 0.5;
   pointer-events: none;
@@ -319,29 +319,29 @@
 
 .about-card {
   padding: 2rem 1.75rem;
-  background: var(--cream);
+  background: var(--neutral-bg);
   border-radius: 1.25rem;
-  border: 1.5px solid var(--tea);
+  border: 1.5px solid var(--neutral-light);
   transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
 }
 
 .about-card:hover {
-  border-color: var(--mint);
-  box-shadow: 0 6px 24px rgba(114,129,86,0.12);
+  border-color: var(--accent);
+  box-shadow: 0 6px 24px rgba(45,0,107,0.12);
   transform: translateY(-4px);
 }
 
 .about-card-icon {
   font-size: 1.1rem;
-  color: var(--sage);
+  color: var(--secondary);
   margin-bottom: 1rem;
 }
 
 .about-card h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
-  color: var(--forest);
+  color: var(--primary);
   margin-bottom: 0.6rem;
   letter-spacing: -0.01em;
 }
@@ -349,7 +349,7 @@
 .about-card p {
   font-size: 0.95rem;
   line-height: 1.7;
-  color: var(--sage);
+  color: var(--secondary);
   opacity: 0.85;
 }
 
@@ -378,38 +378,38 @@
 .about-img-tag {
   position: absolute;
   bottom: 1.5rem; right: 1.5rem;
-  background: rgba(232,244,220,0.92);
+  background: rgba(255,255,255,0.92);
   backdrop-filter: blur(6px);
   padding: 0.65rem 1.1rem;
   border-radius: 999px;
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--forest);
+  color: var(--primary);
   font-weight: 600;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.about-img-tag span { color: var(--sage); }
+.about-img-tag span { color: var(--secondary); }
 
 .about-quote blockquote {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-style: italic;
   font-size: 1.25rem;
   line-height: 1.7;
-  color: var(--forest);
+  color: var(--primary);
   margin-bottom: 1.25rem;
   padding-left: 1.5rem;
-  border-left: 3px solid var(--mint);
+  border-left: 3px solid var(--accent);
 }
 
 .about-quote cite {
   font-size: 0.78rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: var(--secondary);
   font-style: normal;
 }
 
@@ -422,18 +422,18 @@
 .about-badge {
   flex: 1;
   padding: 1rem 1.25rem;
-  background: var(--cream);
+  background: var(--neutral-bg);
   border-radius: 0.75rem;
-  border: 1px solid var(--tea);
+  border: 1px solid var(--neutral-light);
   text-align: center;
 }
 
 .about-badge strong {
   display: block;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1.6rem;
   font-weight: 900;
-  color: var(--forest);
+  color: var(--primary);
   line-height: 1;
 }
 
@@ -442,7 +442,7 @@
   font-size: 0.68rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: var(--secondary);
   margin-top: 0.25rem;
   opacity: 0.8;
 }
@@ -451,9 +451,9 @@
    SECCIÓN 3 — CONTACTO
 ════════════════════════════════════════════ */
 .contact-section {
-  background: var(--cream);
+  background: var(--neutral-bg);
   padding: 6rem 0;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   position: relative;
   overflow: hidden;
 }
@@ -463,7 +463,7 @@
   position: absolute;
   bottom: -80px; right: -80px;
   width: 400px; height: 400px;
-  background: radial-gradient(circle, var(--mint), transparent 70%);
+  background: radial-gradient(circle, var(--accent), transparent 70%);
   border-radius: 50%;
   opacity: 0.35;
   pointer-events: none;
@@ -512,26 +512,26 @@
   font-size: 0.65rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--forest);
+  color: var(--primary);
   font-weight: 700;
   margin-bottom: 0.2rem;
 }
 
 .contact-item-val {
   font-size: 0.95rem;
-  color: var(--sage);
+  color: var(--secondary);
   line-height: 1.6;
   white-space: pre-line;
 }
 
 .contact-item-val.link {
-  color: var(--forest);
+  color: var(--primary);
   text-decoration: underline;
   text-underline-offset: 2px;
-  text-decoration-color: var(--mint);
+  text-decoration-color: var(--accent);
 }
 
-.contact-item-val.link:hover { color: var(--sage); }
+.contact-item-val.link:hover { color: var(--secondary); }
 
 /* social */
 .social-row {
@@ -546,21 +546,21 @@
   gap: 0.45rem;
   padding: 0.5rem 1rem;
   background: white;
-  border: 1.5px solid var(--mint);
+  border: 1.5px solid var(--accent);
   border-radius: 999px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--forest);
+  color: var(--primary);
   text-decoration: none;
   transition: all 0.2s;
 }
 
 .social-btn:hover {
-  background: var(--tea);
-  border-color: var(--sage);
+  background: var(--neutral-light);
+  border-color: var(--secondary);
 }
 
 /* ── Contact form ── */
@@ -568,20 +568,20 @@
   background: white;
   border-radius: 1.5rem;
   padding: 2.2rem 2rem;
-  box-shadow: 0 8px 32px rgba(114,129,86,0.1);
+  box-shadow: 0 8px 32px rgba(45,0,107,0.1);
 }
 
 .contact-form-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1.5rem;
   font-weight: 900;
-  color: var(--forest);
+  color: var(--primary);
   margin-bottom: 0.35rem;
 }
 
 .contact-form-sub {
   font-size: 0.9rem;
-  color: var(--sage);
+  color: var(--secondary);
   line-height: 1.6;
   margin-bottom: 1.6rem;
   opacity: 0.85;
@@ -609,7 +609,7 @@
   font-size: 0.68rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--forest);
+  color: var(--primary);
   font-weight: 600;
 }
 
@@ -617,11 +617,11 @@
 .cf-field select,
 .cf-field textarea {
   padding: 0.72rem 0.95rem;
-  border: 1.5px solid var(--mint);
+  border: 1.5px solid var(--accent);
   border-radius: 9px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1rem;
-  color: var(--forest);
+  color: var(--primary);
   background: white;
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
@@ -630,33 +630,33 @@
 }
 
 .cf-field input::placeholder,
-.cf-field textarea::placeholder { color: var(--mint); font-style: italic; }
+.cf-field textarea::placeholder { color: var(--accent); font-style: italic; }
 
 .cf-field input:focus,
 .cf-field select:focus,
 .cf-field textarea:focus {
-  border-color: var(--sage);
-  box-shadow: 0 0 0 3px rgba(136,151,108,0.12);
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(86,11,173,0.12);
 }
 
 .cf-submit {
   padding: 0.9rem 2rem;
-  background: var(--forest);
-  color: var(--cream);
+  background: var(--primary);
+  color: var(--neutral-bg);
   border: none;
   border-radius: 9px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   cursor: pointer;
   transition: background 0.25s, box-shadow 0.25s;
-  box-shadow: 0 4px 16px rgba(114,129,86,0.28);
+  box-shadow: 0 4px 16px rgba(45,0,107,0.28);
   align-self: flex-start;
 }
 
-.cf-submit:hover { background: var(--sage); box-shadow: 0 6px 20px rgba(114,129,86,0.4); }
+.cf-submit:hover { background: var(--secondary); box-shadow: 0 6px 20px rgba(45,0,107,0.4); }
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
@@ -685,7 +685,7 @@
 .contact-info-only .contact-social {
   grid-column: 1 / -1;
   padding-top: 0.5rem;
-  border-top: 1px solid var(--tea);
+  border-top: 1px solid var(--neutral-light);
 }
 
 @media (max-width: 600px) {
@@ -696,11 +696,11 @@
 /* Estilos para el modo administrador - Paleta Miga-Co */
 
 :root {
-  --forest: #728156;
-  --sage:   #88976C;
-  --mint:   #B6C99C;
-  --tea:    #CFE1BB;
-  --cream:  #E8F4DC;
+  --primary: #2D006B;
+  --secondary:   #560BAD;
+  --accent:   #7B2CBF;
+  --neutral-light:    #E9D8FD;
+  --neutral-bg:  #FFFFFF;
   --gold:   #D4A373;
   --warm:   #E9C46A;
 }
@@ -711,16 +711,16 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1.2rem;
-  background: var(--forest);
-  color: var(--cream);
+  background: var(--primary);
+  color: var(--neutral-bg);
   border-radius: 50px;
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.05em;
   margin-bottom: 1rem;
-  box-shadow: 0 4px 12px rgba(114, 129, 86, 0.25);
+  box-shadow: 0 4px 12px rgba(45, 0, 107, 0.25);
   animation: slideInLeft 0.5s ease;
-  border: 1px solid var(--mint);
+  border: 1px solid var(--accent);
 }
 
 .hero-admin-badge .admin-icon {
@@ -731,10 +731,10 @@
 /* Stats de administrador */
 .hero-stat.admin-stat {
   background: white;
-  border-left: 3px solid var(--forest);
+  border-left: 3px solid var(--primary);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(114, 129, 86, 0.08);
+  box-shadow: 0 2px 8px rgba(45, 0, 107, 0.08);
 }
 
 .hero-stat.admin-stat::before {
@@ -744,7 +744,7 @@
   right: 0;
   width: 60px;
   height: 60px;
-  background: radial-gradient(circle, var(--cream) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--neutral-bg) 0%, transparent 70%);
   opacity: 0.3;
   border-radius: 50%;
   transform: translate(30px, -30px);
@@ -760,19 +760,19 @@
 .hero-stat.admin-stat .stat-icon {
   font-size: 1.2rem;
   opacity: 0.8;
-  color: var(--forest);
+  color: var(--primary);
 }
 
 .hero-stat.admin-stat strong {
-  color: var(--forest);
-  font-family: 'Playfair Display', serif;
+  color: var(--primary);
+  font-family: 'Outfit', sans-serif;
   font-size: 1.5rem;
 }
 
 .hero-stat.admin-stat .stat-label {
   display: block;
   font-size: 0.7rem;
-  color: var(--sage);
+  color: var(--secondary);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-weight: 600;
@@ -786,13 +786,13 @@
   font-weight: 600;
   padding: 0.2rem 0.5rem;
   border-radius: 12px;
-  background: var(--cream);
-  color: var(--forest);
+  background: var(--neutral-bg);
+  color: var(--primary);
 }
 
 .stat-trend.positive {
-  color: var(--forest);
-  background: var(--tea);
+  color: var(--primary);
+  background: var(--neutral-light);
 }
 
 .stat-trend.urgent {
@@ -804,7 +804,7 @@
 /* Sección de acciones rápidas para admin */
 .admin-quick-actions {
   padding: 3.5rem 2rem;
-  background: linear-gradient(135deg, var(--forest) 0%, var(--sage) 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   margin-top: -2rem;
   position: relative;
   z-index: 1;
@@ -819,7 +819,7 @@
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  border: 1px solid rgba(232, 244, 220, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   pointer-events: none;
 }
 
@@ -831,7 +831,7 @@
   width: 250px;
   height: 250px;
   border-radius: 50%;
-  border: 1px solid rgba(232, 244, 220, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   pointer-events: none;
 }
 
@@ -846,16 +846,16 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: var(--cream);
+  color: var(--neutral-bg);
   font-size: 1.5rem;
   margin-bottom: 2rem;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-weight: 700;
 }
 
 .admin-actions-title span {
   font-size: 1.8rem;
-  color: var(--tea);
+  color: var(--neutral-light);
 }
 
 .admin-actions-grid {
@@ -875,10 +875,10 @@
   gap: 0.75rem;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 16px rgba(114, 129, 86, 0.12);
+  box-shadow: 0 4px 16px rgba(45, 0, 107, 0.12);
   position: relative;
   overflow: hidden;
-  border: 1px solid var(--mint);
+  border: 1px solid var(--accent);
 }
 
 .admin-action-card::before {
@@ -888,14 +888,14 @@
   left: 0;
   width: 4px;
   height: 100%;
-  background: var(--forest);
+  background: var(--primary);
   transition: width 0.3s ease;
 }
 
 .admin-action-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(114, 129, 86, 0.2);
-  border-color: var(--forest);
+  box-shadow: 0 8px 24px rgba(45, 0, 107, 0.2);
+  border-color: var(--primary);
 }
 
 .admin-action-card:hover::before {
@@ -907,16 +907,16 @@
   font-size: 2.2rem;
   position: relative;
   z-index: 1;
-  color: var(--forest);
+  color: var(--primary);
 }
 
 .action-label {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--forest);
+  color: var(--primary);
   position: relative;
   z-index: 1;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   letter-spacing: 0.02em;
 }
 
@@ -927,7 +927,7 @@
   transition: all 0.3s ease;
   position: relative;
   z-index: 1;
-  color: var(--sage);
+  color: var(--secondary);
   font-weight: 700;
   font-size: 1.1rem;
 }
@@ -935,14 +935,14 @@
 .admin-action-card:hover .action-arrow {
   opacity: 1;
   transform: translateX(0);
-  color: var(--forest);
+  color: var(--primary);
 }
 
 /* Tarjetas admin en about section */
 .about-card.admin-card {
-  border-top: 3px solid var(--forest);
+  border-top: 3px solid var(--primary);
   background: white;
-  box-shadow: 0 4px 12px rgba(114, 129, 86, 0.08);
+  box-shadow: 0 4px 12px rgba(45, 0, 107, 0.08);
   border-radius: 20px;
   padding: 2rem 1.8rem;
   transition: all 0.3s ease;
@@ -950,42 +950,42 @@
 
 .about-card.admin-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(114, 129, 86, 0.15);
-  border-top-color: var(--sage);
+  box-shadow: 0 8px 20px rgba(45, 0, 107, 0.15);
+  border-top-color: var(--secondary);
 }
 
 .about-card.admin-card .about-card-icon {
-  color: var(--forest);
+  color: var(--primary);
   font-size: 2.2rem;
   margin-bottom: 1.2rem;
   opacity: 0.9;
 }
 
 .about-card.admin-card h3 {
-  color: var(--forest);
-  font-family: 'Playfair Display', serif;
+  color: var(--primary);
+  font-family: 'Outfit', sans-serif;
   font-size: 1.3rem;
   margin-bottom: 0.8rem;
   font-weight: 700;
 }
 
 .about-card.admin-card p {
-  color: var(--sage);
+  color: var(--secondary);
   line-height: 1.6;
   font-size: 0.95rem;
 }
 
 /* Badges admin */
 .about-badge.admin-badge {
-  background: var(--forest);
-  color: var(--cream);
-  border: 1px solid var(--mint);
+  background: var(--primary);
+  color: var(--neutral-bg);
+  border: 1px solid var(--accent);
   padding: 0.8rem 1.2rem;
   border-radius: 12px;
 }
 
 .about-badge.admin-badge strong {
-  color: var(--cream);
+  color: var(--neutral-bg);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   font-size: 1.2rem;
   display: block;
@@ -993,7 +993,7 @@
 }
 
 .about-badge.admin-badge span {
-  color: var(--tea);
+  color: var(--neutral-light);
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -1001,26 +1001,26 @@
 
 /* Botones sociales para admin */
 .social-btn.admin-btn {
-  background: var(--cream);
-  border: 1px solid var(--mint);
-  color: var(--forest);
+  background: var(--neutral-bg);
+  border: 1px solid var(--accent);
+  color: var(--primary);
   padding: 0.7rem 1.2rem;
   border-radius: 50px;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: 0.9rem;
   transition: all 0.3s ease;
 }
 
 .social-btn.admin-btn:hover {
-  background: var(--forest);
-  color: var(--cream);
-  border-color: var(--forest);
+  background: var(--primary);
+  color: var(--neutral-bg);
+  border-color: var(--primary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(114, 129, 86, 0.25);
+  box-shadow: 0 4px 12px rgba(45, 0, 107, 0.25);
 }
 
 .social-btn.admin-btn span:first-child {
@@ -1029,7 +1029,7 @@
 
 /* Sección about para admin */
 .about-section .section-eyebrow {
-  color: var(--sage);
+  color: var(--secondary);
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
@@ -1038,8 +1038,8 @@
 }
 
 .about-section .section-title {
-  color: var(--forest);
-  font-family: 'Playfair Display', serif;
+  color: var(--primary);
+  font-family: 'Outfit', sans-serif;
   font-size: 2.2rem;
   font-weight: 700;
   line-height: 1.2;
@@ -1047,12 +1047,12 @@
 }
 
 .about-section .section-title em {
-  color: var(--sage);
+  color: var(--secondary);
   font-style: italic;
 }
 
 .about-section .section-lead {
-  color: var(--sage);
+  color: var(--secondary);
   font-size: 1.1rem;
   line-height: 1.8;
   max-width: 800px;
@@ -1060,8 +1060,8 @@
 
 /* Ajustes para la imagen en about section admin */
 .about-img-tag {
-  background: var(--forest);
-  color: var(--cream);
+  background: var(--primary);
+  color: var(--neutral-bg);
   padding: 0.6rem 1.2rem;
   border-radius: 50px;
   font-size: 0.85rem;
@@ -1069,29 +1069,29 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  border: 1px solid var(--mint);
-  box-shadow: 0 4px 12px rgba(114, 129, 86, 0.2);
+  border: 1px solid var(--accent);
+  box-shadow: 0 4px 12px rgba(45, 0, 107, 0.2);
 }
 
 .about-img-tag span {
-  color: var(--tea);
+  color: var(--neutral-light);
   font-size: 1rem;
 }
 
 /* Blockquote para admin */
 .about-quote blockquote {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-style: italic;
   font-size: 1.2rem;
-  color: var(--forest);
+  color: var(--primary);
   line-height: 1.6;
-  border-left: 3px solid var(--sage);
+  border-left: 3px solid var(--secondary);
   padding-left: 1.5rem;
   margin-bottom: 1rem;
 }
 
 .about-quote cite {
-  color: var(--sage);
+  color: var(--secondary);
   font-size: 0.9rem;
   font-style: normal;
   font-weight: 600;
@@ -1100,13 +1100,13 @@
 
 /* Contact section admin */
 .contact-item .contact-item-icon {
-  color: var(--forest);
+  color: var(--primary);
   font-size: 1.5rem;
   opacity: 0.9;
 }
 
 .contact-item-label {
-  color: var(--sage);
+  color: var(--secondary);
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
@@ -1115,21 +1115,21 @@
 }
 
 .contact-item-val {
-  color: var(--forest);
+  color: var(--primary);
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.5;
 }
 
 .contact-item-val.link {
-  color: var(--forest);
+  color: var(--primary);
   text-decoration: none;
-  border-bottom: 1px solid var(--mint);
+  border-bottom: 1px solid var(--accent);
   transition: border-color 0.3s;
 }
 
 .contact-item-val.link:hover {
-  border-bottom-color: var(--forest);
+  border-bottom-color: var(--primary);
 }
 
 /* Animaciones personalizadas */
@@ -1188,7 +1188,7 @@
 /* Modo oscuro/claro consistente con el tema */
 .hero-section .hero-admin-badge {
   backdrop-filter: blur(8px);
-  background: rgba(114, 129, 86, 0.95);
+  background: rgba(45, 0, 107, 0.95);
 }
 
 /* Detalles decorativos adicionales */
@@ -1197,7 +1197,7 @@
   position: absolute;
   bottom: 0.5rem;
   right: 0.8rem;
-  color: var(--mint);
+  color: var(--accent);
   opacity: 0.3;
   font-size: 1rem;
 }
@@ -1209,7 +1209,7 @@
   right: 0;
   width: 60px;
   height: 60px;
-  background: radial-gradient(circle, var(--cream) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--neutral-bg) 0%, transparent 70%);
   opacity: 0.4;
   border-radius: 50%;
   transform: translate(20px, 20px);

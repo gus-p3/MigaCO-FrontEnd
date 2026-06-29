@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import api from '../Api/axios';
+import api from '../api/axios';
 
 /**
  * Toggle2FA — componente para el tab "Mis datos" del perfil
@@ -58,9 +58,9 @@ export default function Toggle2FA({ activo = false, onUpdate }) {
       <style>{`
         .t2fa-wrap {
           padding: 1.1rem 1.2rem;
-          background: var(--cream);
+          background: var(--neutral-bg);
           border-radius: 0.85rem;
-          border: 1.5px solid var(--mint);
+          border: 1.5px solid var(--accent);
           display: flex; flex-direction: column; gap: 0.6rem;
         }
         .t2fa-info {
@@ -69,10 +69,10 @@ export default function Toggle2FA({ activo = false, onUpdate }) {
         .t2fa-icon { font-size: 1.4rem; flex-shrink: 0; }
         .t2fa-label {
           font-size: 0.7rem; letter-spacing: 0.15em;
-          text-transform: uppercase; color: var(--forest);
+          text-transform: uppercase; color: var(--primary);
           font-weight: 700; margin-bottom: 0.2rem;
         }
-        .t2fa-desc { font-size: 0.85rem; color: var(--sage); line-height: 1.4; }
+        .t2fa-desc { font-size: 0.85rem; color: var(--secondary); line-height: 1.4; }
         .t2fa-toggle {
           margin-left: auto; flex-shrink: 0;
           width: 48px; height: 26px; border-radius: 999px;
@@ -80,8 +80,8 @@ export default function Toggle2FA({ activo = false, onUpdate }) {
           position: relative;
           transition: background 0.25s;
         }
-        .t2fa-toggle.on  { background: var(--forest); }
-        .t2fa-toggle.off { background: var(--mint); }
+        .t2fa-toggle.on  { background: var(--primary); }
+        .t2fa-toggle.off { background: var(--accent); }
         .t2fa-toggle:disabled { opacity: 0.5; cursor: not-allowed; }
         .t2fa-knob {
           position: absolute; top: 3px;
@@ -96,7 +96,7 @@ export default function Toggle2FA({ activo = false, onUpdate }) {
           font-size: 0.78rem; border-radius: 6px;
           padding: 0.4rem 0.7rem;
         }
-        .t2fa-msg.ok  { background: var(--tea);  color: var(--forest); }
+        .t2fa-msg.ok  { background: var(--neutral-light);  color: var(--primary); }
         .t2fa-msg.err { background: #fff0f0;      color: #b94040; }
       `}</style>
     </div>

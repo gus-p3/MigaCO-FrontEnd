@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import api from "../Api/axios";
+import api from "../api/axios";
 
 export const useProductos = () => {
   const [productos, setProductos] = useState([]);

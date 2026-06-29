@@ -394,14 +394,14 @@
   padding: 2rem 1.8rem 1.8rem;
   width: 100%; max-width: 440px;
   box-shadow: 0 24px 60px rgba(0,0,0,0.14);
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   max-height: 92vh;
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: var(--mint) transparent;
+  scrollbar-color: var(--accent) transparent;
 }
 .pago-modal::-webkit-scrollbar { width: 4px; }
-.pago-modal::-webkit-scrollbar-thumb { background: var(--mint); border-radius: 4px; }
+.pago-modal::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
 
 /* Head */
 .pago-modal-head {
@@ -410,35 +410,35 @@
 }
 
 .pago-modal-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1.45rem;
   font-weight: 900;
-  color: var(--forest);
+  color: var(--primary);
   margin: 0;
 }
-.pago-modal-title em { font-style: italic; color: var(--sage); }
+.pago-modal-title em { font-style: italic; color: var(--secondary); }
 
 .pago-modal-close {
-  background: var(--cream); border: none;
+  background: var(--neutral-bg); border: none;
   width: 32px; height: 32px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  cursor: pointer; color: var(--sage); font-size: 1rem;
+  cursor: pointer; color: var(--secondary); font-size: 1rem;
   transition: background 0.2s; flex-shrink: 0;
 }
-.pago-modal-close:hover { background: var(--tea); }
+.pago-modal-close:hover { background: var(--neutral-light); }
 
 .pago-back-btn {
   background: none; border: none;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.82rem; font-weight: 600;
   letter-spacing: 0.1em;
-  color: var(--sage); cursor: pointer;
+  color: var(--secondary); cursor: pointer;
   transition: color 0.2s; padding: 0;
 }
-.pago-back-btn:hover { color: var(--forest); }
+.pago-back-btn:hover { color: var(--primary); }
 
 .pago-subtitle {
-  font-size: 0.85rem; color: var(--sage);
+  font-size: 0.85rem; color: var(--secondary);
   letter-spacing: 0.04em; margin-bottom: 1.1rem; opacity: 0.85;
 }
 
@@ -448,34 +448,34 @@
 .pago-metodo-item {
   display: flex; align-items: center; gap: 0.85rem;
   padding: 0.8rem 1rem;
-  border: 1.5px solid var(--mint); border-radius: 10px;
+  border: 1.5px solid var(--accent); border-radius: 10px;
   cursor: pointer; transition: all 0.2s; position: relative;
 }
-.pago-metodo-item:hover { border-color: var(--sage); background: var(--cream); }
-.pago-metodo-item.selected { border-color: var(--forest); background: var(--cream); }
+.pago-metodo-item:hover { border-color: var(--secondary); background: var(--neutral-bg); }
+.pago-metodo-item.selected { border-color: var(--primary); background: var(--neutral-bg); }
 .pago-metodo-item input[type="radio"] { display: none; }
 
 .pago-metodo-icon { font-size: 1.3rem; flex-shrink: 0; }
-.pago-metodo-label { flex: 1; font-size: 0.95rem; color: var(--forest); font-weight: 600; }
-.pago-check { font-size: 0.65rem; color: var(--forest); }
+.pago-metodo-label { flex: 1; font-size: 0.95rem; color: var(--primary); font-weight: 600; }
+.pago-check { font-size: 0.65rem; color: var(--primary); }
 
 /* ── Resumen ── */
 .pago-resumen {
   display: flex; justify-content: space-between; align-items: center;
   padding: 0.8rem 1rem;
-  background: var(--tea); border-radius: 8px;
+  background: var(--neutral-light); border-radius: 8px;
   margin-bottom: 1.1rem;
-  font-size: 0.88rem; color: var(--sage);
+  font-size: 0.88rem; color: var(--secondary);
 }
 .pago-resumen strong {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.2rem; font-weight: 900; color: var(--forest);
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.2rem; font-weight: 900; color: var(--primary);
 }
 
 /* ── Pregunta ── */
 .pago-pregunta {
   font-size: 0.75rem; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--sage);
+  text-transform: uppercase; color: var(--secondary);
   margin-bottom: 0.75rem; font-weight: 600;
 }
 
@@ -484,46 +484,46 @@
 
 .btn-pagar-ahora {
   flex: 2; padding: 0.82rem;
-  background: var(--forest); color: var(--cream);
+  background: var(--primary); color: var(--neutral-bg);
   border: none; border-radius: 9px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.8rem; font-weight: 600;
   letter-spacing: 0.15em; text-transform: uppercase;
   cursor: pointer; transition: background 0.2s, box-shadow 0.2s;
-  box-shadow: 0 3px 12px rgba(114,129,86,0.28);
+  box-shadow: 0 3px 12px rgba(45,0,107,0.28);
 }
-.btn-pagar-ahora:hover { background: var(--sage); }
+.btn-pagar-ahora:hover { background: var(--secondary); }
 .btn-pagar-ahora:disabled { opacity: 0.55; cursor: not-allowed; }
 
 .btn-pagar-despues {
   flex: 1; padding: 0.82rem;
-  background: var(--cream); color: var(--sage);
+  background: var(--neutral-bg); color: var(--secondary);
   border: none; border-radius: 9px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.8rem; font-weight: 600;
   letter-spacing: 0.12em; text-transform: uppercase;
   cursor: pointer; transition: background 0.2s;
 }
-.btn-pagar-despues:hover { background: var(--tea); color: var(--forest); }
+.btn-pagar-despues:hover { background: var(--neutral-light); color: var(--primary); }
 .btn-pagar-despues:disabled { opacity: 0.55; cursor: not-allowed; }
 
 .pago-nota {
-  font-size: 0.68rem; color: var(--mint);
+  font-size: 0.68rem; color: var(--accent);
   text-align: center; font-style: italic;
   letter-spacing: 0.05em;
 }
 
 /* ── Card preview ── */
 .card-preview {
-  background: linear-gradient(135deg, var(--forest) 0%, var(--sage) 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   border-radius: 14px;
   padding: 1.3rem 1.4rem;
   margin-bottom: 1.3rem;
-  color: var(--cream);
+  color: var(--neutral-bg);
   position: relative;
   min-height: 150px;
   display: flex; flex-direction: column; justify-content: space-between;
-  box-shadow: 0 8px 24px rgba(114,129,86,0.35);
+  box-shadow: 0 8px 24px rgba(45,0,107,0.35);
 }
 
 .card-chip {
@@ -535,7 +535,7 @@
 .card-brand-label {
   position: absolute;
   top: 1.2rem; right: 1.3rem;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 0.9rem; font-weight: 700;
   letter-spacing: 0.05em;
   opacity: 0.9;
@@ -580,21 +580,21 @@
 
 .card-field-group label {
   font-size: 0.68rem; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--forest); font-weight: 600;
+  text-transform: uppercase; color: var(--primary); font-weight: 600;
 }
 
 .card-field-group input {
   padding: 0.68rem 0.9rem;
-  border: 1.5px solid var(--mint); border-radius: 8px;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1rem; color: var(--forest);
+  border: 1.5px solid var(--accent); border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; color: var(--primary);
   background: white; outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
-.card-field-group input::placeholder { color: var(--mint); }
+.card-field-group input::placeholder { color: var(--accent); }
 .card-field-group input:focus {
-  border-color: var(--sage);
-  box-shadow: 0 0 0 3px rgba(136,151,108,0.12);
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(86,11,173,0.12);
 }
 .card-field-group input.field-error { border-color: #b94040; }
 
@@ -607,9 +607,9 @@
 .pago-otro-info {
   text-align: center;
   padding: 1.5rem 1rem;
-  background: var(--cream);
+  background: var(--neutral-bg);
   border-radius: 1rem;
-  border: 1.5px dashed var(--mint);
+  border: 1.5px dashed var(--accent);
 }
 
 .pago-otro-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
@@ -624,8 +624,8 @@
 
 .pago-spinner {
   width: 48px; height: 48px;
-  border: 3px solid var(--mint);
-  border-top-color: var(--forest);
+  border: 3px solid var(--accent);
+  border-top-color: var(--primary);
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
@@ -634,13 +634,13 @@
 
 .pago-progress {
   width: 100%; height: 4px;
-  background: var(--tea); border-radius: 4px;
+  background: var(--neutral-light); border-radius: 4px;
   overflow: hidden;
 }
 
 .pago-progress-bar {
   height: 100%;
-  background: linear-gradient(90deg, var(--forest), var(--sage));
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
   border-radius: 4px;
   animation: progressAnim 2.2s ease-in-out forwards;
 }
@@ -677,14 +677,14 @@
   padding: 2rem 1.8rem 1.8rem;
   width: 100%; max-width: 440px;
   box-shadow: 0 24px 60px rgba(0,0,0,0.14);
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   max-height: 92vh;
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: var(--mint) transparent;
+  scrollbar-color: var(--accent) transparent;
 }
 .pago-modal::-webkit-scrollbar { width: 4px; }
-.pago-modal::-webkit-scrollbar-thumb { background: var(--mint); border-radius: 4px; }
+.pago-modal::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
 
 /* Head */
 .pago-modal-head {
@@ -693,35 +693,35 @@
 }
 
 .pago-modal-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1.45rem;
   font-weight: 900;
-  color: var(--forest);
+  color: var(--primary);
   margin: 0;
 }
-.pago-modal-title em { font-style: italic; color: var(--sage); }
+.pago-modal-title em { font-style: italic; color: var(--secondary); }
 
 .pago-modal-close {
-  background: var(--cream); border: none;
+  background: var(--neutral-bg); border: none;
   width: 32px; height: 32px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  cursor: pointer; color: var(--sage); font-size: 1rem;
+  cursor: pointer; color: var(--secondary); font-size: 1rem;
   transition: background 0.2s; flex-shrink: 0;
 }
-.pago-modal-close:hover { background: var(--tea); }
+.pago-modal-close:hover { background: var(--neutral-light); }
 
 .pago-back-btn {
   background: none; border: none;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.82rem; font-weight: 600;
   letter-spacing: 0.1em;
-  color: var(--sage); cursor: pointer;
+  color: var(--secondary); cursor: pointer;
   transition: color 0.2s; padding: 0;
 }
-.pago-back-btn:hover { color: var(--forest); }
+.pago-back-btn:hover { color: var(--primary); }
 
 .pago-subtitle {
-  font-size: 0.85rem; color: var(--sage);
+  font-size: 0.85rem; color: var(--secondary);
   letter-spacing: 0.04em; margin-bottom: 1.1rem; opacity: 0.85;
 }
 
@@ -731,34 +731,34 @@
 .pago-metodo-item {
   display: flex; align-items: center; gap: 0.85rem;
   padding: 0.8rem 1rem;
-  border: 1.5px solid var(--mint); border-radius: 10px;
+  border: 1.5px solid var(--accent); border-radius: 10px;
   cursor: pointer; transition: all 0.2s; position: relative;
 }
-.pago-metodo-item:hover { border-color: var(--sage); background: var(--cream); }
-.pago-metodo-item.selected { border-color: var(--forest); background: var(--cream); }
+.pago-metodo-item:hover { border-color: var(--secondary); background: var(--neutral-bg); }
+.pago-metodo-item.selected { border-color: var(--primary); background: var(--neutral-bg); }
 .pago-metodo-item input[type="radio"] { display: none; }
 
 .pago-metodo-icon { font-size: 1.3rem; flex-shrink: 0; }
-.pago-metodo-label { flex: 1; font-size: 0.95rem; color: var(--forest); font-weight: 600; }
-.pago-check { font-size: 0.65rem; color: var(--forest); }
+.pago-metodo-label { flex: 1; font-size: 0.95rem; color: var(--primary); font-weight: 600; }
+.pago-check { font-size: 0.65rem; color: var(--primary); }
 
 /* ── Resumen ── */
 .pago-resumen {
   display: flex; justify-content: space-between; align-items: center;
   padding: 0.8rem 1rem;
-  background: var(--tea); border-radius: 8px;
+  background: var(--neutral-light); border-radius: 8px;
   margin-bottom: 1.1rem;
-  font-size: 0.88rem; color: var(--sage);
+  font-size: 0.88rem; color: var(--secondary);
 }
 .pago-resumen strong {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.2rem; font-weight: 900; color: var(--forest);
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.2rem; font-weight: 900; color: var(--primary);
 }
 
 /* ── Pregunta ── */
 .pago-pregunta {
   font-size: 0.75rem; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--sage);
+  text-transform: uppercase; color: var(--secondary);
   margin-bottom: 0.75rem; font-weight: 600;
 }
 
@@ -767,46 +767,46 @@
 
 .btn-pagar-ahora {
   flex: 2; padding: 0.82rem;
-  background: var(--forest); color: var(--cream);
+  background: var(--primary); color: var(--neutral-bg);
   border: none; border-radius: 9px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.8rem; font-weight: 600;
   letter-spacing: 0.15em; text-transform: uppercase;
   cursor: pointer; transition: background 0.2s, box-shadow 0.2s;
-  box-shadow: 0 3px 12px rgba(114,129,86,0.28);
+  box-shadow: 0 3px 12px rgba(45,0,107,0.28);
 }
-.btn-pagar-ahora:hover { background: var(--sage); }
+.btn-pagar-ahora:hover { background: var(--secondary); }
 .btn-pagar-ahora:disabled { opacity: 0.55; cursor: not-allowed; }
 
 .btn-pagar-despues {
   flex: 1; padding: 0.82rem;
-  background: var(--cream); color: var(--sage);
+  background: var(--neutral-bg); color: var(--secondary);
   border: none; border-radius: 9px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.8rem; font-weight: 600;
   letter-spacing: 0.12em; text-transform: uppercase;
   cursor: pointer; transition: background 0.2s;
 }
-.btn-pagar-despues:hover { background: var(--tea); color: var(--forest); }
+.btn-pagar-despues:hover { background: var(--neutral-light); color: var(--primary); }
 .btn-pagar-despues:disabled { opacity: 0.55; cursor: not-allowed; }
 
 .pago-nota {
-  font-size: 0.68rem; color: var(--mint);
+  font-size: 0.68rem; color: var(--accent);
   text-align: center; font-style: italic;
   letter-spacing: 0.05em;
 }
 
 /* ── Card preview ── */
 .card-preview {
-  background: linear-gradient(135deg, var(--forest) 0%, var(--sage) 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   border-radius: 14px;
   padding: 1.3rem 1.4rem;
   margin-bottom: 1.3rem;
-  color: var(--cream);
+  color: var(--neutral-bg);
   position: relative;
   min-height: 150px;
   display: flex; flex-direction: column; justify-content: space-between;
-  box-shadow: 0 8px 24px rgba(114,129,86,0.35);
+  box-shadow: 0 8px 24px rgba(45,0,107,0.35);
 }
 
 .card-chip {
@@ -818,7 +818,7 @@
 .card-brand-label {
   position: absolute;
   top: 1.2rem; right: 1.3rem;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 0.9rem; font-weight: 700;
   letter-spacing: 0.05em;
   opacity: 0.9;
@@ -863,21 +863,21 @@
 
 .card-field-group label {
   font-size: 0.68rem; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--forest); font-weight: 600;
+  text-transform: uppercase; color: var(--primary); font-weight: 600;
 }
 
 .card-field-group input {
   padding: 0.68rem 0.9rem;
-  border: 1.5px solid var(--mint); border-radius: 8px;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1rem; color: var(--forest);
+  border: 1.5px solid var(--accent); border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; color: var(--primary);
   background: white; outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
-.card-field-group input::placeholder { color: var(--mint); }
+.card-field-group input::placeholder { color: var(--accent); }
 .card-field-group input:focus {
-  border-color: var(--sage);
-  box-shadow: 0 0 0 3px rgba(136,151,108,0.12);
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(86,11,173,0.12);
 }
 .card-field-group input.field-error { border-color: #b94040; }
 
@@ -890,9 +890,9 @@
 .pago-otro-info {
   text-align: center;
   padding: 1.5rem 1rem;
-  background: var(--cream);
+  background: var(--neutral-bg);
   border-radius: 1rem;
-  border: 1.5px dashed var(--mint);
+  border: 1.5px dashed var(--accent);
 }
 
 .pago-otro-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
@@ -907,8 +907,8 @@
 
 .pago-spinner {
   width: 48px; height: 48px;
-  border: 3px solid var(--mint);
-  border-top-color: var(--forest);
+  border: 3px solid var(--accent);
+  border-top-color: var(--primary);
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
@@ -917,13 +917,13 @@
 
 .pago-progress {
   width: 100%; height: 4px;
-  background: var(--tea); border-radius: 4px;
+  background: var(--neutral-light); border-radius: 4px;
   overflow: hidden;
 }
 
 .pago-progress-bar {
   height: 100%;
-  background: linear-gradient(90deg, var(--forest), var(--sage));
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
   border-radius: 4px;
   animation: progressAnim 2.2s ease-in-out forwards;
 }
@@ -959,29 +959,29 @@
 .pago-step-dot {
   width: 28px; height: 28px;
   border-radius: 50%;
-  border: 2px solid var(--mint);
+  border: 2px solid var(--accent);
   background: white;
-  color: var(--mint);
+  color: var(--accent);
   display: flex; align-items: center; justify-content: center;
   font-size: 0.72rem; font-weight: 700;
   transition: all 0.2s;
 }
 
 .pago-step-dot.active {
-  border-color: var(--forest);
-  background: var(--forest);
-  color: var(--cream);
+  border-color: var(--primary);
+  background: var(--primary);
+  color: var(--neutral-bg);
 }
 
 .pago-step-dot.done {
-  border-color: var(--sage);
-  background: var(--tea);
-  color: var(--forest);
+  border-color: var(--secondary);
+  background: var(--neutral-light);
+  color: var(--primary);
 }
 
 .pago-step-line {
   width: 36px; height: 2px;
-  background: var(--mint);
+  background: var(--accent);
   margin: 0 2px;
 }
 
@@ -991,8 +991,8 @@
   align-items: flex-start;
   gap: 1rem;
   padding: 1.1rem 1.2rem;
-  background: var(--cream);
-  border: 1.5px solid var(--sage);
+  background: var(--neutral-bg);
+  border: 1.5px solid var(--secondary);
   border-radius: 1rem;
   margin-bottom: 0.5rem;
 }
@@ -1007,8 +1007,8 @@
   letter-spacing: 0.15em;
   text-transform: uppercase;
   font-weight: 700;
-  color: var(--forest);
-  background: var(--tea);
+  color: var(--primary);
+  background: var(--neutral-light);
   padding: 0.18rem 0.6rem;
   border-radius: 999px;
   margin-bottom: 0.45rem;
@@ -1016,22 +1016,22 @@
 }
 
 .pago-dir-principal {
-  color: var(--sage);
+  color: var(--secondary);
   font-size: 0.6rem;
 }
 
 .pago-dir-calle {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1rem; font-weight: 700;
-  color: var(--forest); margin-bottom: 0.2rem;
+  color: var(--primary); margin-bottom: 0.2rem;
 }
 
 .pago-dir-ciudad {
-  font-size: 0.88rem; color: var(--sage); line-height: 1.4;
+  font-size: 0.88rem; color: var(--secondary); line-height: 1.4;
 }
 
 .pago-dir-ref {
-  font-size: 0.78rem; color: var(--mint);
+  font-size: 0.78rem; color: var(--accent);
   font-style: italic; margin-top: 0.2rem;
 }
 
@@ -1039,14 +1039,14 @@
 .pago-dir-loading {
   display: flex; align-items: center; gap: 0.75rem;
   padding: 1.2rem;
-  font-size: 0.9rem; color: var(--sage);
+  font-size: 0.9rem; color: var(--secondary);
   font-style: italic;
 }
 
 .pago-spinner-sm {
   width: 20px; height: 20px;
-  border: 2px solid var(--mint);
-  border-top-color: var(--forest);
+  border: 2px solid var(--accent);
+  border-top-color: var(--primary);
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
   flex-shrink: 0;
@@ -1056,21 +1056,21 @@
 .pago-dir-empty {
   text-align: center;
   padding: 1.5rem 1rem;
-  background: var(--cream);
-  border: 1.5px dashed var(--mint);
+  background: var(--neutral-bg);
+  border: 1.5px dashed var(--accent);
   border-radius: 1rem;
   display: flex; flex-direction: column;
   align-items: center; gap: 0.5rem;
 }
 
 .pago-dir-empty span { font-size: 2rem; opacity: 0.5; }
-.pago-dir-empty p { font-size: 0.9rem; color: var(--sage); }
+.pago-dir-empty p { font-size: 0.9rem; color: var(--secondary); }
 
 .pago-dir-link {
   background: none; border: none;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.82rem; font-weight: 600;
-  color: var(--forest); cursor: pointer;
+  color: var(--primary); cursor: pointer;
   text-decoration: underline;
   text-underline-offset: 2px;
   padding: 0; margin-top: 0.25rem;

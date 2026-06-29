@@ -47,14 +47,14 @@
   position: absolute;
   top: 14px;
   right: 14px;
-  background: var(--tea);
+  background: var(--neutral-light);
   border: none;
   border-radius: 50%;
   width: 32px;
   height: 32px;
   font-size: 1rem;
   cursor: pointer;
-  color: var(--forest);
+  color: var(--primary);
   transition: background 0.2s ease;
   display: flex;
   align-items: center;
@@ -62,7 +62,7 @@
 }
 
 .pers-close:hover {
-  background: var(--mint);
+  background: var(--accent);
 }
 
 /* Header */
@@ -72,7 +72,7 @@
   gap: 14px;
   margin-bottom: 24px;
   padding-bottom: 16px;
-  border-bottom: 2px solid var(--tea);
+  border-bottom: 2px solid var(--neutral-light);
 }
 
 .pers-icon {
@@ -83,13 +83,13 @@
   margin: 0 0 4px 0;
   font-size: 1.2rem;
   font-weight: 700;
-  color: var(--forest);
+  color: var(--primary);
 }
 
 .pers-subtitle {
   margin: 0;
   font-size: 0.85rem;
-  color: var(--sage);
+  color: var(--secondary);
 }
 
 /* Sections */
@@ -113,26 +113,26 @@
 
 .pers-chip {
   padding: 8px 16px;
-  background: var(--tea);
+  background: var(--neutral-light);
   border: 2px solid transparent;
   border-radius: 20px;
   cursor: pointer;
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--forest);
+  color: var(--primary);
   font-family: inherit;
   transition: all 0.2s ease;
 }
 
 .pers-chip:hover {
-  border-color: var(--sage);
-  background: var(--cream);
+  border-color: var(--secondary);
+  background: var(--neutral-bg);
 }
 
 .pers-chip.active {
-  background: var(--sage);
+  background: var(--secondary);
   color: white;
-  border-color: var(--forest);
+  border-color: var(--primary);
   font-weight: 600;
 }
 
@@ -147,13 +147,13 @@
   font-family: inherit;
   resize: vertical;
   transition: border-color 0.2s ease;
-  color: var(--forest);
+  color: var(--primary);
 }
 
 .pers-textarea:focus {
   outline: none;
-  border-color: var(--sage);
-  box-shadow: 0 0 0 3px rgba(136, 151, 108, 0.15);
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(86, 11, 173, 0.15);
 }
 
 .pers-char-count {
@@ -166,7 +166,7 @@
 
 /* Resumen */
 .pers-resumen {
-  background: var(--cream);
+  background: var(--neutral-bg);
   border-radius: 8px;
   padding: 12px 16px;
   margin-bottom: 20px;
@@ -176,7 +176,7 @@
 .pers-resumen p {
   margin: 4px 0;
   font-size: 0.875rem;
-  color: var(--forest);
+  color: var(--primary);
 }
 
 .pers-error {
@@ -201,25 +201,25 @@
 .pers-btn-cancelar {
   flex: 1;
   padding: 12px;
-  background: var(--tea);
+  background: var(--neutral-light);
   border: none;
   border-radius: 8px;
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--forest);
+  color: var(--primary);
   cursor: pointer;
   font-family: inherit;
   transition: background 0.2s ease;
 }
 
 .pers-btn-cancelar:hover {
-  background: var(--mint);
+  background: var(--accent);
 }
 
 .pers-btn-confirmar {
   flex: 2;
   padding: 12px;
-  background: var(--sage);
+  background: var(--secondary);
   border: none;
   border-radius: 8px;
   font-size: 0.9rem;
@@ -231,7 +231,7 @@
 }
 
 .pers-btn-confirmar:hover {
-  background: var(--forest);
+  background: var(--primary);
 }
 
 /* Responsive */

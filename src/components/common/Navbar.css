@@ -1,43 +1,54 @@
 /* Navbar.css */
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap");
 
 :root {
-  --forest: #728156;
-  --sage: #88976c;
-  --mint: #b6c99c;
-  --tea: #cfe1bb;
-  --cream: #e8f4dc;
+  --primary: #2D006B;
+  --secondary: #560BAD;
+  --accent: #7B2CBF;
+  --neutral-light: #E9D8FD;
+  --neutral-bg: #FFFFFF;
 }
 
-/* Reset básico local si no tienes uno global */
-.nav-container * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.nav {
+/* Contenedor flotante */
+.nav-container {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
-  padding: 0 2.5rem;
-  height: 72px;
+  padding: 1.2rem 1.5rem;
+  pointer-events: none;
+}
+
+.nav-container * {
+  box-sizing: border-box;
+}
+
+.nav {
+  pointer-events: auto;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(232, 244, 220, 0.88);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--mint);
-  font-family: "Cormorant Garamond", serif;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(233, 216, 253, 0.6);
+  border-radius: 9999px;
+  padding: 0 2rem;
+  box-shadow: 0 10px 30px rgba(45, 0, 107, 0.08), 0 1px 3px rgba(45, 0, 107, 0.04);
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-logo {
-  font-family: "Playfair Display", serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1.6rem;
   font-weight: 900;
-  color: var(--forest);
+  color: var(--primary);
   letter-spacing: -0.02em;
   display: flex;
   align-items: center;
@@ -48,13 +59,13 @@
 }
 
 .nav-logo:hover {
-  color: var(--sage);
+  color: var(--secondary);
 }
 
 .nav-logo span {
   font-style: italic;
   font-weight: 400;
-  color: var(--sage);
+  color: var(--secondary);
 }
 
 .nav-links {
@@ -67,7 +78,7 @@
   font-size: 0.82rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--forest);
+  color: var(--primary);
   cursor: pointer;
   position: relative;
   transition: color 0.3s;
@@ -87,12 +98,12 @@
   left: 0;
   width: 0;
   height: 1px;
-  background: var(--sage);
+  background: var(--secondary);
   transition: width 0.3s ease;
 }
 
 .nav-links li:hover {
-  color: var(--sage);
+  color: var(--secondary);
 }
 .nav-links li:hover::after {
   width: 100%;
@@ -101,7 +112,7 @@
 .hamburger {
   display: none;
   font-size: 1.4rem;
-  color: var(--forest);
+  color: var(--primary);
   cursor: pointer;
   background: none;
   border: none;
@@ -110,21 +121,25 @@
 
 .mobile-menu {
   position: fixed;
-  top: 72px;
-  left: 0;
-  right: 0;
-  background: var(--cream);
-  border-bottom: 1px solid var(--mint);
+  top: 90px;
+  left: 1.5rem;
+  right: 1.5rem;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--neutral-light);
+  border-radius: 24px;
   z-index: 99;
-  padding: 1.5rem 2.5rem 2rem;
+  padding: 1.5rem 2rem;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
   transform: translateY(-10px);
   opacity: 0;
   pointer-events: none;
-  transition: all 0.3s ease;
-  font-family: "Cormorant Garamond", serif;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 15px 35px rgba(45, 0, 107, 0.12);
+  font-family: 'Inter', sans-serif;
 }
 
 .mobile-menu.open {
@@ -138,10 +153,10 @@
   font-size: 1.1rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--forest);
+  color: var(--primary);
   cursor: pointer;
   padding: 0.4rem 0;
-  border-bottom: 1px solid var(--tea);
+  border-bottom: 1px solid var(--neutral-light);
   transition: color 0.2s;
 }
 
@@ -152,7 +167,7 @@
 }
 
 .mobile-menu li:hover {
-  color: var(--sage);
+  color: var(--secondary);
 }
 
 @media (max-width: 768px) {
@@ -175,7 +190,7 @@
   border: none;
   padding: 0.6rem 1.4rem;
   border-radius: 8px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
   letter-spacing: 0.08em;
   font-size: 0.9rem;

@@ -14,20 +14,20 @@
   margin: 0;
   background: white;
   border-radius: 50px;
-  box-shadow: 0 2px 8px rgba(114, 129, 86, 0.08);
-  border: 1px solid var(--mint, #B6C99C);
+  box-shadow: 0 2px 8px rgba(45, 0, 107, 0.08);
+  border: 1px solid var(--accent, #7B2CBF);
 }
 
 .breadcrumb-item {
   display: flex;
   align-items: center;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.95rem;
-  color: var(--sage, #88976C);
+  color: var(--secondary, #560BAD);
 }
 
 .breadcrumb-link {
-  color: var(--forest, #728156);
+  color: var(--primary, #2D006B);
   text-decoration: none;
   transition: all 0.3s;
   position: relative;
@@ -35,7 +35,7 @@
 }
 
 .breadcrumb-link:hover {
-  color: var(--sage, #88976C);
+  color: var(--secondary, #560BAD);
 }
 
 .breadcrumb-link::after {
@@ -45,7 +45,7 @@
   left: 0;
   width: 0;
   height: 1px;
-  background: var(--mint, #B6C99C);
+  background: var(--accent, #7B2CBF);
   transition: width 0.3s;
 }
 
@@ -54,14 +54,14 @@
 }
 
 .breadcrumb-current {
-  color: var(--sage, #88976C);
+  color: var(--secondary, #560BAD);
   font-weight: 600;
   opacity: 0.8;
 }
 
 .breadcrumb-separator {
   margin: 0 0.5rem;
-  color: var(--mint, #B6C99C);
+  color: var(--accent, #7B2CBF);
   display: flex;
   align-items: center;
   opacity: 0.7;

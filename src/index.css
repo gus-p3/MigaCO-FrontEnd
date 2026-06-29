@@ -1,13 +1,20 @@
 
 /* index.css o App.css */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  --forest: #728156;
-  --sage: #88976C;
-  --mint: #B6C99C;
-  --tea: #CFE1BB;
-  --cream: #E8F4DC;
+  --primary: #2D006B;
+  --secondary: #560BAD;
+  --accent: #7B2CBF;
+  --neutral-light: #E9D8FD;
+  --neutral-bg: #FFFFFF;
+
+  /* Aliases de compatibilidad */
+  --forest: var(--primary);
+  --sage: var(--secondary);
+  --mint: var(--accent);
+  --tea: var(--neutral-light);
+  --cream: var(--neutral-bg);
 }
 
 * {
@@ -17,9 +24,9 @@
 }
 
 body {
-  background: var(--cream);
-  font-family: 'Cormorant Garamond', serif;
-  color: var(--forest);
+  background: var(--neutral-bg);
+  font-family: 'Inter', sans-serif;
+  color: var(--primary);
 }
 
 .loading-spinner {
@@ -27,7 +34,16 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 200px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.2rem;
-  color: var(--forest);
+  color: var(--primary);
+}
+
+/* Global Font Overrides for readability */
+h1, h2, h3, h4, h5, h6, .logo, [class*="logo"], [class*="title"], [class*="heading"] {
+  font-family: 'Outfit', sans-serif !important;
+}
+
+body, button, input, select, textarea, p, span, a, li, td, th, div {
+  font-family: 'Inter', sans-serif !important;
 }

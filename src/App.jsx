@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import { AuthProvider, useAuth } from "./context/AuthContext";
 import { CarritoProvider } from "./context/CarritoContext";
-import Navbar from "./pages/Navbar";
+import Navbar from "./components/common/Navbar";
 import Home from "./pages/Home";
 import CatalogoPage from "./pages/CatalogoPage";
 import ProductDetail from "./pages/ProductDetail";
@@ -18,10 +18,10 @@ import AdminPedidos from "./pages/AdminPedidos";
 import Carrito from "./pages/Carrito";
 import NotFound from "./pages/NotFound";
 import Error500 from "./pages/Error500";
-import Footer from "./pages/Footer";
+import Footer from "./components/common/Footer";
 import Sitemap from "./pages/Sitemap";
 import AvisoPrivacidad from "./pages/AvisoPrivacidad";
-import Breadcrumb from "./components/Breadcrumb"; // ← Importar Breadcrumb
+import Breadcrumb from "./components/common/Breadcrumb"; // ← Importar Breadcrumb
 import "./App.css";
 
 const ProtectedRoute = ({ children, adminOnly = false }) => {

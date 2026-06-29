@@ -26,7 +26,7 @@
   justify-content: center;
   gap: 8px;
   padding: 14px 10px;
-  background: var(--tea);
+  background: var(--neutral-light);
   border: 2px solid transparent;
   border-radius: 10px;
   cursor: pointer;
@@ -36,15 +36,15 @@
 }
 
 .category-btn:hover {
-  background: var(--cream);
+  background: var(--neutral-bg);
   transform: translateY(-2px);
 }
 
 .category-btn.active {
-  background: var(--sage);
+  background: var(--secondary);
   color: white;
-  border-color: var(--forest);
-  box-shadow: 0 4px 12px rgba(136, 151, 108, 0.3);
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(86, 11, 173, 0.3);
 }
 
 .category-emoji {
