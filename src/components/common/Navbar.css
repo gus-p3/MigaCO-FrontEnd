@@ -185,49 +185,54 @@
 }
 
 .logout-btn {
-  background: #b65c5c;
+  background: linear-gradient(135deg, #7B2CBF, #560BAD);
   color: white;
   border: none;
-  padding: 0.6rem 1.4rem;
-  border-radius: 8px;
+  padding: 0.55rem 1.3rem;
+  border-radius: 9999px;
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   letter-spacing: 0.08em;
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  box-shadow: 0 4px 12px rgba(86, 11, 173, 0.25);
 }
 
 .logout-btn:hover {
-  background: #9a4a4a;
+  background: linear-gradient(135deg, #560BAD, #2D006B);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(182, 92, 92, 0.3);
+  box-shadow: 0 6px 16px rgba(45, 0, 107, 0.35);
 }
 
 .logout-btn:active {
   transform: translateY(0);
 }
+
 .nav-carrito-link {
   position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
 }
 
 .carrito-badge {
-  background: #a0522d;
-  color: white;
-  border-radius: 50%;
-  font-size: 0.7rem;
-  font-weight: 700;
-  min-width: 18px;
-  height: 18px;
+  background: linear-gradient(135deg, var(--secondary), var(--accent));
+  color: #FFFFFF;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  min-width: 20px;
+  height: 20px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0 3px;
+  padding: 0 5px;
+  box-shadow: 0 2px 8px rgba(86, 11, 173, 0.35);
+  border: 2px solid #FFFFFF;
+  line-height: 1;
 }
