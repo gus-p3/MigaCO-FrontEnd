@@ -71,36 +71,52 @@ ${inventario}`;
         }
       ];
 
-      const response = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            systemInstruction: {
-              parts: [{ text: buildSystemPrompt() }]
-            },
-            contents: contents,
-            generationConfig: {
-              maxOutputTokens: 350,
-              temperature: 0.7
-            }
-          })
-        }
-      );
+      const modelos = [
+        "gemini-flash-latest",
+        "gemini-3.5-flash",
+        "gemini-3.6-flash",
+        "gemini-3-flash-preview"
+      ];
+      let respuesta = null;
+      let ultimoError = null;
 
-      const data = await response.json();
-      
-      if (!response.ok) {
-        console.error("Gemini API Error:", data);
-        throw new Error(data.error?.message || "Error en la llamada a Gemini");
+      for (const modelo of modelos) {
+        try {
+          const response = await fetch(
+            `https://generativelanguage.googleapis.com/v1beta/models/${modelo}:generateContent?key=${apiKey}`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                "x-goog-api-key": apiKey
+              },
+              body: JSON.stringify({
+                systemInstruction: {
+                  parts: [{ text: buildSystemPrompt() }]
+                },
+                contents: contents,
+                generationConfig: {
+                  maxOutputTokens: 350,
+                  temperature: 0.7
+                }
+              })
+            }
+          );
+
+          const data = await response.json();
+          if (response.ok && data.candidates?.[0]?.content?.parts?.[0]?.text) {
+            respuesta = data.candidates[0].content.parts[0].text;
+            break;
+          } else {
+            ultimoError = data?.error?.message || "Error al consultar modelo";
+          }
+        } catch (e) {
+          ultimoError = e.message;
+        }
       }
 
-      const respuesta = data.candidates?.[0]?.content?.parts?.[0]?.text;
       if (!respuesta) {
-        throw new Error("Respuesta vacía de Gemini");
+        throw new Error(ultimoError || "No se pudo obtener respuesta de Gemini");
       }
 
       setMensajes(prev => [...prev, { de: "bot", texto: respuesta }]);
