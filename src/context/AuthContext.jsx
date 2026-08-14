@@ -77,9 +77,10 @@ export const AuthProvider = ({ children }) => {
       return { success: true, user: userData };
     } catch (err) {
       console.error("Error en login:", err);
-      setError(err.response?.data?.message || "Error al iniciar sesión");
+      const msg = err.response?.data?.error || err.response?.data?.message || "Error al iniciar sesión";
+      setError(msg);
       setLoading(false);
-      return { success: false, error: err.response?.data?.message };
+      return { success: false, error: msg };
     }
   }, []);
 
@@ -112,9 +113,10 @@ export const AuthProvider = ({ children }) => {
       return { success: true, user: newUserData };
     } catch (err) {
       console.error("Error en registro:", err);
-      setError(err.response?.data?.message || "Error al registrar usuario");
+      const msg = err.response?.data?.error || err.response?.data?.message || "Error al registrar usuario";
+      setError(msg);
       setLoading(false);
-      return { success: false, error: err.response?.data?.message };
+      return { success: false, error: msg };
     }
   }, []);
 
