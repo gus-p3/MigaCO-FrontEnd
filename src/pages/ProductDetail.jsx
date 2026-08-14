@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import api from "../Api/axios";
+import api from "../api/axios";
 import "./ProductDetail.css";
 import Resenas from "../components/Resenas";
 

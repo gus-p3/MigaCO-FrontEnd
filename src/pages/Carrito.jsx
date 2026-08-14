@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCarrito } from "../context/CarritoContext";
-import api from "../Api/axios";
+import api from "../api/axios";
 import "./Carrito.css";
 
 // ── Métodos de pago simulados ──────────────────────────────────────────────

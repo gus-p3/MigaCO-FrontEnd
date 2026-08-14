@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useState, useContext, useEffect, useCallback } from "react";
-import api from "../Api/axios";
+import api from "../api/axios";
 
 export const AuthContext = createContext(null);
 

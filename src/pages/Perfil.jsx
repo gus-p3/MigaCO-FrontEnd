@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
-import api from "../Api/axios";
+import api from "../api/axios";
 import "./Perfil.css";
 import {
   IconHome,

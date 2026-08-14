@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useState, useContext, useCallback, useEffect } from 'react';
-import api from '../Api/axios';
+import api from '../api/axios';
 import { useAuth } from './AuthContext';
 
 export const CarritoContext = createContext(null);

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import api from '../Api/axios';
+import api from '../api/axios';
 
 /**
  * Toggle2FA — componente para el tab "Mis datos" del perfil

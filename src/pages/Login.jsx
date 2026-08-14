@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import api from "../Api/axios";
+import api from "../api/axios";
 import "./Login.css";
 import { EyeIcon, EyeSlashIcon } from "../utils/perfilUtils";
 
