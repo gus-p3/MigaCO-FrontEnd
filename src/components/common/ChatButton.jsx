@@ -3,7 +3,7 @@ import "./ChatButton.css";
 
 const WHATSAPP_NUMBER = "524151775265";
 const WHATSAPP_MSG = encodeURIComponent("Hola! Tengo una pregunta sobre un producto de Miga Co.");
-const API_URL = "http://localhost:3000/api";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000/api";
 
 export default function ChatButton() {
   const [open, setOpen] = useState(false);
@@ -17,7 +17,7 @@ export default function ChatButton() {
   useEffect(() => {
     fetch(`${API_URL}/productos`)
       .then(res => res.json())
-      .then(data => setProductos(data))
+      .then(data => setProductos(Array.isArray(data) ? data : data?.productos || []))
       .catch(() => setProductos([]));
   }, []);
 
@@ -50,34 +50,65 @@ ${inventario}`;
     setCargando(true);
 
     try {
-      const historial = mensajes.map(m => ({
-        role: m.de === "user" ? "user" : "assistant",
-        content: m.texto
-      }));
+      const apiKey = import.meta.env.VITE_GEMINI_API_KEY || import.meta.env.GEMINI_API_KEY;
+      if (!apiKey) {
+        throw new Error("No se ha configurado la API Key de Gemini");
+      }
 
-      const response = await fetch("https://api.anthropic.com/v1/messages", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-api-key": import.meta.env.VITE_ANTHROPIC_API_KEY,
-          "anthropic-version": "2023-06-01",
-          "anthropic-dangerous-direct-browser-access": "true"
-        },
-        body: JSON.stringify({
-          model: "claude-haiku-4-5-20251001",
-          max_tokens: 300,
-          system: buildSystemPrompt(),
-          messages: [...historial, { role: "user", content: pregunta }]
-        })
-      });
+      // Historial para Gemini: roles 'user' y 'model'
+      const historialFiltrado = mensajes
+        .filter(m => m.texto && m.texto !== "Hola! Soy el asistente de Miga Co. En que te puedo ayudar?")
+        .map(m => ({
+          role: m.de === "user" ? "user" : "model",
+          parts: [{ text: m.texto }]
+        }));
+
+      const contents = [
+        ...historialFiltrado,
+        {
+          role: "user",
+          parts: [{ text: pregunta }]
+        }
+      ];
+
+      const response = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            systemInstruction: {
+              parts: [{ text: buildSystemPrompt() }]
+            },
+            contents: contents,
+            generationConfig: {
+              maxOutputTokens: 350,
+              temperature: 0.7
+            }
+          })
+        }
+      );
 
       const data = await response.json();
-      const respuesta = data.content[0].text;
+      
+      if (!response.ok) {
+        console.error("Gemini API Error:", data);
+        throw new Error(data.error?.message || "Error en la llamada a Gemini");
+      }
+
+      const respuesta = data.candidates?.[0]?.content?.parts?.[0]?.text;
+      if (!respuesta) {
+        throw new Error("Respuesta vacía de Gemini");
+      }
+
       setMensajes(prev => [...prev, { de: "bot", texto: respuesta }]);
     } catch (error) {
+      console.error("Error en chat:", error);
       setMensajes(prev => [...prev, {
         de: "bot",
-        texto: "Hubo un error. Por favor contacta a un asesor por WhatsApp."
+        texto: "Hubo un error al procesar tu mensaje. Por favor contacta a un asesor por WhatsApp."
       }]);
     } finally {
       setCargando(false);
