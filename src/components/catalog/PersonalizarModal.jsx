@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./PersonalizarModal.css";
-import api from "../api/axios";
+import api from "../../api/axios";
 
 export default function PersonalizarModal({ product, onClose }) {
   const { personalizable = {} } = product;

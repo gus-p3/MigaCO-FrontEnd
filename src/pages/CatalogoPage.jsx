@@ -1,6 +1,6 @@
-import Navbar from "../pages/Navbar";
-import Catalog from "../components.Modulo2/Catalog";
-import ChatButton from "../pages/ChatButton";
+import Navbar from "../components/common/Navbar";
+import Catalog from "../components/catalog/Catalog";
+import ChatButton from "../components/common/ChatButton";
 
 export default function CatalogoPage() {
   return (

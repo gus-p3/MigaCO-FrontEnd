@@ -4,7 +4,7 @@ import CategoryFilter from "./CategoryFilter";
 import AdvancedFilter from "./AdvancedFilter";
 import ProductCard from "./ProductCard";
 import ProductModal from "./ProductModal";
-import { useProductos } from "../hooks/useProductos";
+import { useProductos } from "../../hooks/useProductos";
 import "./Catalog.css";
 
 export default function Catalog() {

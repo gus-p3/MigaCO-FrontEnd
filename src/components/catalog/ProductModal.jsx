@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ProductModal.css";
 import PersonalizarModal from "./PersonalizarModal";
-import { useCarrito } from "../context/CarritoContext";
-import { useAuth } from "../context/AuthContext";
-import Resenas from "../components/Resenas";
+import { useCarrito } from "../../context/CarritoContext";
+import { useAuth } from "../../context/AuthContext";
+import Resenas from "../reviews/Resenas";
 
 
 export default function ProductModal({ product, onClose }) {

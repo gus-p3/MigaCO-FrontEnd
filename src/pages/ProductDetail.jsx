@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import api from "../api/axios";
 import "./ProductDetail.css";
-import Resenas from "../components/Resenas";
+import Resenas from "../components/reviews/Resenas";
 
 export default function ProductDetail() {
   const { id } = useParams();

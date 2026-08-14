@@ -22,7 +22,7 @@
 }
 
 .modal-content {
-  background: var(--cream);
+  background: var(--neutral-bg);
   border-radius: 12px;
   max-width: 800px;
   width: 90%;
@@ -53,12 +53,12 @@
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
-  color: var(--sage);
+  color: var(--secondary);
   transition: color 0.2s;
 }
 
 .modal-close:hover {
-  color: var(--forest);
+  color: var(--primary);
 }
 
 .modal-header {
@@ -66,7 +66,7 @@
   gap: 1.5rem;
   margin-bottom: 1.5rem;
   flex-wrap: wrap;
-  color: var(--forest);
+  color: var(--primary);
 }
 
 /* Carrusel de imágenes */
@@ -75,7 +75,7 @@
   width: 280px;
   border-radius: 8px;
   overflow: hidden;
-  background: var(--tea);
+  background: var(--neutral-light);
 }
 
 .modal-image {
@@ -158,7 +158,7 @@
 }
 
 .modal-categoria {
-  color: var(--sage);
+  color: var(--secondary);
   font-size: 0.9rem;
   margin: 0 0 1rem 0;
 }
@@ -169,7 +169,7 @@
 }
 
 .modal-stock.in {
-  color: var(--forest);
+  color: var(--primary);
 }
 
 .modal-stock.out {
@@ -179,7 +179,7 @@
 .modal-precio {
   font-size: 1.3rem;
   font-weight: 700;
-  color: var(--forest);
+  color: var(--primary);
   margin-top: 1rem;
   margin-bottom: 1.5rem;
 }
@@ -221,14 +221,14 @@
 }
 
 .bar {
-  background: var(--tea);
+  background: var(--neutral-light);
   height: 10px;
   border-radius: 5px;
   overflow: hidden;
 }
 
 .bar > div {
-  background: var(--forest);
+  background: var(--primary);
   height: 100%;
   transition: width 0.3s ease;
 }
@@ -250,7 +250,7 @@
 }
 
 .dot-filled {
-  background: var(--forest);
+  background: var(--primary);
 }
 
 .dot-empty {
@@ -315,34 +315,34 @@
 }
 
 .btn-personalizar-modal {
-  background: var(--cream);
-  color: var(--forest);
-  border: 2px solid var(--sage);
+  background: var(--neutral-bg);
+  color: var(--primary);
+  border: 2px solid var(--secondary);
 }
 
 .btn-personalizar-modal:hover {
-  background: var(--sage);
+  background: var(--secondary);
   color: white;
   transform: translateY(-2px);
 }
 
 .btn-agregar {
-  background: var(--forest);
+  background: var(--primary);
   color: white;
 }
 
 .btn-agregar:hover {
-  background: var(--sage);
+  background: var(--secondary);
   transform: translateY(-2px);
 }
 
 .btn-cerrar {
-  background: var(--tea);
-  color: var(--forest);
+  background: var(--neutral-light);
+  color: var(--primary);
 }
 
 .btn-cerrar:hover {
-  background: var(--sage);
+  background: var(--secondary);
 }
 
 /* Responsive */

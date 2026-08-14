@@ -1,16 +1,16 @@
 :root {
-  --forest: #728156;
-  --sage: #88976C;
-  --mint: #B6C99C;
-  --tea: #CFE1BB;
-  --cream: #E8F4DC;
+  --primary: #2D006B;
+  --secondary: #560BAD;
+  --accent: #7B2CBF;
+  --neutral-light: #E9D8FD;
+  --neutral-bg: #FFFFFF;
   --gold: #D4A373;
   --warm: #E9C46A;
 }
 
 .sitemap-page {
   min-height: 100vh;
-  background: var(--cream);
+  background: var(--neutral-bg);
   padding: 4rem 2rem;
   position: relative;
   overflow: hidden;
@@ -22,7 +22,7 @@
   position: fixed;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, var(--tea) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--neutral-light) 0%, transparent 70%);
   top: -100px;
   right: -100px;
   border-radius: 50%;
@@ -36,7 +36,7 @@
   position: fixed;
   width: 350px;
   height: 350px;
-  background: radial-gradient(circle, var(--mint) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
   bottom: -80px;
   left: -80px;
   border-radius: 50%;
@@ -54,10 +54,10 @@
 
 /* Título principal */
 .sitemap-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 3rem;
   font-weight: 900;
-  color: var(--forest);
+  color: var(--primary);
   margin-bottom: 1rem;
   position: relative;
   display: inline-block;
@@ -70,14 +70,14 @@
   left: 0;
   width: 80px;
   height: 3px;
-  background: var(--mint);
+  background: var(--accent);
   border-radius: 2px;
 }
 
 .sitemap-subtitle {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.2rem;
-  color: var(--sage);
+  color: var(--secondary);
   margin-bottom: 3rem;
   font-style: italic;
   opacity: 0.9;
@@ -96,8 +96,8 @@
   background: white;
   border-radius: 20px;
   padding: 2rem;
-  box-shadow: 0 8px 24px rgba(114, 129, 86, 0.1);
-  border: 1px solid var(--mint);
+  box-shadow: 0 8px 24px rgba(45, 0, 107, 0.1);
+  border: 1px solid var(--accent);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -105,8 +105,8 @@
 
 .sitemap-section:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(114, 129, 86, 0.15);
-  border-color: var(--forest);
+  box-shadow: 0 12px 32px rgba(45, 0, 107, 0.15);
+  border-color: var(--primary);
 }
 
 .sitemap-section::before {
@@ -116,17 +116,17 @@
   right: 0;
   width: 100px;
   height: 100px;
-  background: radial-gradient(circle, var(--cream) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--neutral-bg) 0%, transparent 70%);
   opacity: 0.3;
   border-radius: 50%;
   transform: translate(30px, -30px);
 }
 
 .sitemap-section h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--forest);
+  color: var(--primary);
   margin-bottom: 1.5rem;
   position: relative;
   display: inline-block;
@@ -138,7 +138,7 @@
   right: -25px;
   top: 50%;
   transform: translateY(-50%);
-  color: var(--mint);
+  color: var(--accent);
   font-size: 1rem;
   opacity: 0.7;
 }
@@ -153,22 +153,22 @@
   margin-bottom: 0.8rem;
   position: relative;
   padding-left: 1.5rem;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1rem;
-  color: var(--sage);
+  color: var(--secondary);
 }
 
 .sitemap-section li::before {
   content: '└─';
   position: absolute;
   left: 0;
-  color: var(--mint);
+  color: var(--accent);
   opacity: 0.7;
   font-size: 0.9rem;
 }
 
 .sitemap-section a {
-  color: var(--forest);
+  color: var(--primary);
   text-decoration: none;
   transition: all 0.3s;
   position: relative;
@@ -182,12 +182,12 @@
   left: 0;
   width: 0;
   height: 1px;
-  background: var(--sage);
+  background: var(--secondary);
   transition: width 0.3s;
 }
 
 .sitemap-section a:hover {
-  color: var(--sage);
+  color: var(--secondary);
   transform: translateX(5px);
 }
 
@@ -197,12 +197,12 @@
 
 /* Sección admin especial */
 .sitemap-section.admin {
-  background: linear-gradient(135deg, #ffffff 0%, var(--cream) 100%);
-  border-left: 4px solid var(--forest);
+  background: linear-gradient(135deg, #ffffff 0%, var(--neutral-bg) 100%);
+  border-left: 4px solid var(--primary);
 }
 
 .sitemap-section.admin h2 {
-  color: var(--forest);
+  color: var(--primary);
 }
 
 .sitemap-section.admin li::before {
@@ -222,13 +222,13 @@
   margin-left: auto;
   margin-right: auto;
   width: fit-content;
-  border: 1px solid var(--mint);
-  box-shadow: 0 4px 12px rgba(114, 129, 86, 0.08);
+  border: 1px solid var(--accent);
+  box-shadow: 0 4px 12px rgba(45, 0, 107, 0.08);
 }
 
 .sitemap-xml-link a {
-  font-family: 'Cormorant Garamond', serif;
-  color: var(--forest);
+  font-family: 'Inter', sans-serif;
+  color: var(--primary);
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 600;
@@ -239,7 +239,7 @@
 }
 
 .sitemap-xml-link a:hover {
-  color: var(--sage);
+  color: var(--secondary);
   transform: scale(1.05);
 }
 
@@ -250,7 +250,7 @@
   background: white;
   border-radius: 50px;
   display: inline-block;
-  border: 1px solid var(--mint);
+  border: 1px solid var(--accent);
 }
 
 .sitemap-breadcrumb ol {
@@ -265,24 +265,24 @@
 .sitemap-breadcrumb li {
   display: flex;
   align-items: center;
-  color: var(--sage);
+  color: var(--secondary);
   font-size: 0.9rem;
 }
 
 .sitemap-breadcrumb li:not(:last-child)::after {
   content: '/';
   margin-left: 0.5rem;
-  color: var(--mint);
+  color: var(--accent);
 }
 
 .sitemap-breadcrumb a {
-  color: var(--forest);
+  color: var(--primary);
   text-decoration: none;
   transition: color 0.3s;
 }
 
 .sitemap-breadcrumb a:hover {
-  color: var(--sage);
+  color: var(--secondary);
 }
 
 /* Estructura jerárquica adicional */
@@ -291,12 +291,12 @@
   padding: 2rem;
   background: white;
   border-radius: 20px;
-  border: 1px solid var(--mint);
+  border: 1px solid var(--accent);
 }
 
 .sitemap-hierarchy h3 {
-  font-family: 'Playfair Display', serif;
-  color: var(--forest);
+  font-family: 'Outfit', sans-serif;
+  color: var(--primary);
   margin-bottom: 1.5rem;
   font-size: 1.3rem;
 }
@@ -313,7 +313,7 @@
   margin: 0.8rem 0;
   position: relative;
   padding-left: 2rem;
-  color: var(--sage);
+  color: var(--secondary);
 }
 
 .sitemap-tree-detailed li::before {
@@ -323,7 +323,7 @@
   top: 0.8rem;
   width: 1.5rem;
   height: 1px;
-  background: var(--mint);
+  background: var(--accent);
 }
 
 .sitemap-tree-detailed li::after {
@@ -333,7 +333,7 @@
   top: 0;
   width: 1px;
   height: 100%;
-  background: var(--mint);
+  background: var(--accent);
 }
 
 .sitemap-tree-detailed li:last-child::after {
@@ -428,7 +428,7 @@
 }
 
 .sitemap-section li:hover::before {
-  color: var(--forest);
+  color: var(--primary);
   opacity: 1;
 }
 
@@ -436,8 +436,8 @@
 .sitemap-badge {
   display: inline-block;
   padding: 0.2rem 0.8rem;
-  background: var(--mint);
-  color: var(--forest);
+  background: var(--accent);
+  color: var(--primary);
   border-radius: 20px;
   font-size: 0.75rem;
   font-weight: 600;
@@ -449,7 +449,7 @@
 .sitemap-count {
   display: inline-block;
   margin-left: 0.5rem;
-  color: var(--sage);
+  color: var(--secondary);
   font-size: 0.8rem;
   opacity: 0.8;
 }
@@ -461,13 +461,13 @@ html {
 
 /* Focus states para accesibilidad */
 .sitemap-section a:focus {
-  outline: 2px solid var(--mint);
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
   border-radius: 4px;
 }
 
 .sitemap-xml-link a:focus {
-  outline: 2px solid var(--mint);
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
   border-radius: 50px;
 }

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
-import { useCarrito } from "../context/CarritoContext";
+import { useAuth } from "../../context/AuthContext";
+import { useCarrito } from "../../context/CarritoContext";
 import "./Navbar.css";
 
 export default function Navbar() {
@@ -22,13 +22,7 @@ export default function Navbar() {
   if (loading) {
     return (
       <div className="nav-container">
-        <nav className="nav" style={{
-          position: "sticky",
-          top: 0,
-          zIndex: 100,
-          background: "rgba(232,244,220,0.95)",
-          backdropFilter: "blur(12px)",
-        }}>
+        <nav className="nav">
           <Link to="/" className="nav-logo" onClick={closeMenu}>
             Miga<span>-Co</span>
           </Link>
@@ -171,16 +165,8 @@ export default function Navbar() {
 
   return (
     <div className="nav-container">
-      <nav
-        className="nav"
-        style={{
-          position: "sticky",
-          top: 0,
-          zIndex: 100,
-          background: "rgba(232,244,220,0.95)",
-          backdropFilter: "blur(12px)",
-        }}
-      >
+      <nav className="nav">
+
         <Link to="/" className="nav-logo" onClick={closeMenu}>
           Miga<span>-Co</span>
         </Link>

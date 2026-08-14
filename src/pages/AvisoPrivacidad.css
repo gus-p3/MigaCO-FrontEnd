@@ -1,14 +1,14 @@
 :root {
-  --forest: #728156;
-  --sage: #88976C;
-  --mint: #B6C99C;
-  --tea: #CFE1BB;
-  --cream: #E8F4DC;
+  --primary: #2D006B;
+  --secondary: #560BAD;
+  --accent: #7B2CBF;
+  --neutral-light: #E9D8FD;
+  --neutral-bg: #FFFFFF;
 }
 
 .legal-page {
   min-height: 100vh;
-  background: var(--cream);
+  background: var(--neutral-bg);
   padding: 3rem 2rem;
   position: relative;
   overflow: hidden;
@@ -19,7 +19,7 @@
   position: fixed;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, var(--tea) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--neutral-light) 0%, transparent 70%);
   top: -100px;
   right: -100px;
   border-radius: 50%;
@@ -38,26 +38,26 @@
 .legal-breadcrumb {
   margin-bottom: 2rem;
   font-size: 0.9rem;
-  color: var(--sage);
+  color: var(--secondary);
 }
 
 .legal-breadcrumb a {
-  color: var(--forest);
+  color: var(--primary);
   text-decoration: none;
   transition: color 0.3s;
 }
 
 .legal-breadcrumb a:hover {
-  color: var(--sage);
+  color: var(--secondary);
 }
 
 .legal-breadcrumb .separator {
   margin: 0 0.5rem;
-  color: var(--mint);
+  color: var(--accent);
 }
 
 .legal-breadcrumb .current {
-  color: var(--sage);
+  color: var(--secondary);
   font-weight: 600;
 }
 
@@ -68,8 +68,8 @@
   padding: 2rem;
   background: white;
   border-radius: 30px;
-  box-shadow: 0 8px 24px rgba(114, 129, 86, 0.1);
-  border: 1px solid var(--mint);
+  box-shadow: 0 8px 24px rgba(45, 0, 107, 0.1);
+  border: 1px solid var(--accent);
 }
 
 .legal-icon {
@@ -78,23 +78,23 @@
 }
 
 .legal-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 2.8rem;
   font-weight: 900;
-  color: var(--forest);
+  color: var(--primary);
   margin-bottom: 1rem;
   line-height: 1.2;
 }
 
 .legal-title em {
-  color: var(--sage);
+  color: var(--secondary);
   font-style: italic;
 }
 
 .legal-subtitle {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.2rem;
-  color: var(--sage);
+  color: var(--secondary);
   margin-bottom: 1.5rem;
   font-style: italic;
 }
@@ -104,14 +104,14 @@
   justify-content: center;
   gap: 2rem;
   font-size: 0.85rem;
-  color: var(--sage);
+  color: var(--secondary);
 }
 
 .legal-date, .legal-version {
   padding: 0.3rem 1rem;
-  background: var(--cream);
+  background: var(--neutral-bg);
   border-radius: 50px;
-  border: 1px solid var(--mint);
+  border: 1px solid var(--accent);
 }
 
 /* Contenido */
@@ -119,8 +119,8 @@
   background: white;
   border-radius: 30px;
   padding: 2.5rem;
-  box-shadow: 0 8px 24px rgba(114, 129, 86, 0.1);
-  border: 1px solid var(--mint);
+  box-shadow: 0 8px 24px rgba(45, 0, 107, 0.1);
+  border: 1px solid var(--accent);
   margin-bottom: 2rem;
 }
 
@@ -133,13 +133,13 @@
 }
 
 .legal-section h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--forest);
+  color: var(--primary);
   margin-bottom: 1.2rem;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--mint);
+  border-bottom: 2px solid var(--accent);
   position: relative;
 }
 
@@ -148,13 +148,13 @@
   position: absolute;
   right: 0;
   bottom: -12px;
-  color: var(--mint);
+  color: var(--accent);
   font-size: 0.9rem;
   opacity: 0.7;
 }
 
 .legal-section p {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.05rem;
   line-height: 1.7;
   color: #4a5a3a;
@@ -162,15 +162,15 @@
 }
 
 .legal-section strong {
-  color: var(--forest);
+  color: var(--primary);
   font-weight: 700;
 }
 
 .subsection-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1.2rem;
   font-weight: 600;
-  color: var(--sage);
+  color: var(--secondary);
   margin: 1.5rem 0 1rem 0;
 }
 
@@ -183,22 +183,22 @@
 }
 
 .category-card {
-  background: var(--cream);
+  background: var(--neutral-bg);
   border-radius: 16px;
   padding: 1.5rem;
-  border: 1px solid var(--mint);
+  border: 1px solid var(--accent);
   transition: transform 0.3s;
 }
 
 .category-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(114, 129, 86, 0.1);
+  box-shadow: 0 6px 16px rgba(45, 0, 107, 0.1);
 }
 
 .category-card h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1.1rem;
-  color: var(--forest);
+  color: var(--primary);
   margin-bottom: 1rem;
 }
 
@@ -209,7 +209,7 @@
 }
 
 .category-card li {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   padding: 0.4rem 0;
   padding-left: 1.5rem;
   position: relative;
@@ -220,14 +220,14 @@
   content: '•';
   position: absolute;
   left: 0;
-  color: var(--sage);
+  color: var(--secondary);
   font-size: 1.2rem;
 }
 
 .category-card .note {
   margin-top: 0.8rem;
   font-size: 0.85rem;
-  color: var(--sage);
+  color: var(--secondary);
   font-style: italic;
 }
 
@@ -239,7 +239,7 @@
 }
 
 .legal-list li {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.05rem;
   line-height: 1.7;
   color: #4a5a3a;
@@ -252,30 +252,30 @@
   content: '✦';
   position: absolute;
   left: 0;
-  color: var(--mint);
+  color: var(--accent);
   font-size: 0.9rem;
 }
 
 /* Cajas destacadas */
 .legal-highlight {
-  background: var(--tea);
+  background: var(--neutral-light);
   padding: 1rem 1.5rem;
   border-radius: 12px;
-  border-left: 4px solid var(--forest);
+  border-left: 4px solid var(--primary);
   margin: 1.5rem 0;
   font-weight: 500;
 }
 
 .legal-note {
-  background: var(--cream);
+  background: var(--neutral-bg);
   padding: 1rem 1.5rem;
   border-radius: 12px;
   margin: 1.5rem 0;
-  border: 1px dashed var(--mint);
+  border: 1px dashed var(--accent);
 }
 
 .legal-note a {
-  color: var(--forest);
+  color: var(--primary);
   text-decoration: none;
   font-weight: 600;
 }
@@ -285,16 +285,16 @@
 }
 
 .legal-contact-box {
-  background: linear-gradient(135deg, var(--cream) 0%, white 100%);
+  background: linear-gradient(135deg, var(--neutral-bg) 0%, white 100%);
   padding: 1.5rem;
   border-radius: 16px;
   margin: 1.5rem 0;
-  border: 1px solid var(--mint);
+  border: 1px solid var(--accent);
 }
 
 .legal-contact-box h3 {
-  font-family: 'Playfair Display', serif;
-  color: var(--forest);
+  font-family: 'Outfit', sans-serif;
+  color: var(--primary);
   margin-bottom: 1rem;
   font-size: 1.2rem;
 }
@@ -304,7 +304,7 @@
 }
 
 .legal-contact-box a {
-  color: var(--forest);
+  color: var(--primary);
   text-decoration: none;
   font-weight: 600;
 }
@@ -315,7 +315,7 @@
 
 .legal-small {
   font-size: 0.85rem !important;
-  color: var(--sage) !important;
+  color: var(--secondary) !important;
   margin-top: 1rem !important;
 }
 
@@ -324,7 +324,7 @@
   margin: 1.5rem 0;
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid var(--mint);
+  border: 1px solid var(--accent);
 }
 
 .cookie-row {
@@ -332,7 +332,7 @@
   grid-template-columns: 1fr 2fr 1fr;
   padding: 0.8rem 1.2rem;
   background: white;
-  border-bottom: 1px solid var(--mint);
+  border-bottom: 1px solid var(--accent);
   font-size: 0.9rem;
 }
 
@@ -341,7 +341,7 @@
 }
 
 .cookie-row.header {
-  background: var(--forest);
+  background: var(--primary);
   color: white;
   font-weight: 600;
   font-size: 0.9rem;
@@ -368,31 +368,31 @@
   display: flex;
   gap: 1rem;
   padding: 1.2rem;
-  background: var(--cream);
+  background: var(--neutral-bg);
   border-radius: 16px;
-  border: 1px solid var(--mint);
+  border: 1px solid var(--accent);
 }
 
 .contact-icon {
   font-size: 1.5rem;
-  color: var(--forest);
+  color: var(--primary);
 }
 
 .contact-info-item h4 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1rem;
-  color: var(--forest);
+  color: var(--primary);
   margin-bottom: 0.3rem;
 }
 
 .contact-info-item a {
-  color: var(--sage);
+  color: var(--secondary);
   text-decoration: none;
   transition: color 0.3s;
 }
 
 .contact-info-item a:hover {
-  color: var(--forest);
+  color: var(--primary);
   text-decoration: underline;
 }
 
@@ -408,12 +408,12 @@
   padding: 2rem;
   background: white;
   border-radius: 30px;
-  border: 1px solid var(--mint);
+  border: 1px solid var(--accent);
 }
 
 .legal-footer p {
-  font-family: 'Cormorant Garamond', serif;
-  color: var(--sage);
+  font-family: 'Inter', sans-serif;
+  color: var(--secondary);
   margin-bottom: 0.5rem;
 }
 
@@ -461,7 +461,7 @@
     content: attr(data-label);
     font-weight: 600;
     display: block;
-    color: var(--forest);
+    color: var(--primary);
     margin-bottom: 0.2rem;
   }
   
@@ -507,13 +507,13 @@
 
 /* Enlaces generales */
 .legal-content a {
-  color: var(--forest);
+  color: var(--primary);
   text-decoration: none;
-  border-bottom: 1px solid var(--mint);
+  border-bottom: 1px solid var(--accent);
   transition: all 0.3s;
 }
 
 .legal-content a:hover {
-  color: var(--sage);
-  border-bottom-color: var(--forest);
+  color: var(--secondary);
+  border-bottom-color: var(--primary);
 }
